@@ -1,29 +1,22 @@
 body {
-	font: 16px "Bree Serif", "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-	color: #00B7FF;
+	font-family: "Bree Serif", "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 button.remove-post {
-    margin-left: 20px;
-    opacity: 0.06;
-    vertical-align: center;
+	margin-left: 20px;
+	opacity: 0.1;
+	vertical-align: center;
 }
 
-article.fading {
-    opacity: 0;
-    transition: opacity .15s ease-in-out;
-    -moz-transition: opacity .15s ease-in-out;
-    -webkit-transition: opacity .15s ease-in-out;
+#content article {
+	margin-top: 30px;
 }
 
 button.remove-post:hover {
-    opacity: .7;
-    transition: opacity .15s ease-in-out;
-    -moz-transition: opacity .15s ease-in-out;
-    -webkit-transition: opacity .15s ease-in-out;
+	opacity: .7;
+	transition: opacity .15s ease-in-out;
+	-moz-transition: opacity .15s ease-in-out;
+	-webkit-transition: opacity .15s ease-in-out;
 }
 #content {
 	padding-top: 50px;
@@ -41,4 +34,11 @@ button.remove-post:hover {
 	-webkit-transition: all .2s linear;
 	-moz-transition: all .2s linear;
 	transition: all .2s linear;
+}
+.dropdown-menu a {
+	cursor: pointer;
+}
+.dropdown-menu a [class^="icon-"], [class*=" icon-"] {
+	margin-top: 2px;
+	margin-right: 2px;
 }

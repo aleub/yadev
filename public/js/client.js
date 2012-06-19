@@ -3,14 +3,14 @@
 
   $("document").ready(function() {
     console.log("doc ready");
-    return $('button.remove-post').on('click', function(el) {
+    return $('a.remove-post').on('click', function(el) {
       var $this;
       $this = $(this);
       return $.post('/post/remove/' + (($(this)).data('m-id')), function(res) {
         console.log($this.parents('article'));
         return $this.parents('article').animate({
           opacity: 0
-        }, 250, 'ease', function() {
+        }, 250, function() {
           return ($(this)).remove();
         });
       });

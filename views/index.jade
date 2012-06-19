@@ -4,6 +4,25 @@ p Welcome to #{title}
 each post in posts
   article
     h2 #{post.title}
-      button.remove-post.inline.btn.btn-danger(href="#", data-m-id="#{post._id}")
-            i.icon-trash.icon-white
-    p #{post.body}
+    .btn-group.inline
+        button.btn.btn-small
+          i.icon-cog
+          |  Admin
+        button.btn.dropdown-toggle(data-toggle="dropdown")
+          span.caret
+        ul.dropdown-menu
+          li
+            a
+              i.icon-pencil
+              |  Edit
+          li
+            a.remove-post(data-m-id="#{post._id}")
+              i.icon-trash 
+              |  Delete
+          li
+            a
+              i.icon-ban-circle
+              |  Unpublish
+
+    small (#{post.ts})
+    blockquote !{post.body}
