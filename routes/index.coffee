@@ -23,5 +23,4 @@ module.exports =
         error: 'title or body seems to be empty...'
 
   removePost: (req, res) ->
-    db_posts.remove _id: db.ObjectID.createFromHexString req.params.id
-    res.redirect "/"
+    db_posts.remove(_id: db.ObjectID.createFromHexString(req.params.id), -> res.send success: true)

@@ -4,6 +4,6 @@ p Welcome to #{title}
 each post in posts
   article
     h2 #{post.title}
-        a.remove-post.inline.btn.btn-danger(href="/post/remove/#{post._id}") 
+      button.remove-post.inline.btn.btn-danger(href="#", data-m-id="#{post._id}")
             i.icon-trash.icon-white
     p #{post.body}

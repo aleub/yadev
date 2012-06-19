@@ -6,7 +6,8 @@ yadev blog
 personal site project to get the coffee/nodejs/jade/bdd stuff...
 
 # Usage
-to use the src you need a recent version of nodejs and coffee-script 
+to use the src you need a recent version of nodejs and coffee-script.
+
 to get coffeescript:
 
     npm install -g coffee-script
@@ -25,3 +26,6 @@ and finally to run the code:
     coffee app.coffee
 
 now, cross your fingers and hit http://localhost:3000 in your favorite browser
+
+
+To actually do something with it you need a mongodb instance running on localhost:27017
