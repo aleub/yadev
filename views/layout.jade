@@ -1,0 +1,20 @@
+!!!5
+html(lang="de")
+  head
+    meta(charset="utf-8")
+    title= title
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="author", content="Andre Leubner")
+    link(rel="stylesheet", href="/stylesheets/bootstrap.min.css")
+    link(rel="stylesheet", href="/stylesheets/bootstrap-responsive.min.css")
+    link(href='http://fonts.googleapis.com/css?family=Bree+Serif', rel='stylesheet')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          a.brand(href='/') yadev
+          ul.nav
+            li: a(href="/post/new") New Post
+     #content.container!=body
