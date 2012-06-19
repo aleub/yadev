@@ -23,8 +23,10 @@ console.log routes
 
 app.get "/", routes.index
 app.get "/post/new", routes.newPost
-app.post "/post/new", routes.addPost
 app.get "/post/:id", routes.viewPost
+
+app.post "/post/new", routes.addPost
+app.get "/post/remove/:id", routes.removePost
 
 app.listen 3000, ->
   console.log "Express server listening on port %d in %s mode", app.address().port, app.settings.env
