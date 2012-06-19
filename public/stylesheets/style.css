@@ -6,6 +6,18 @@ a {
 	color: #00B7FF;
 }
 
+a.remove-post {
+    margin-left: 20px;
+    opacity: 0.06;
+    vertical-align: center;
+}
+
+a.remove-post:hover {
+    opacity: .7;
+    transition: opacity .15s ease-in-out;
+    -moz-transition: opacity .15s ease-in-out;
+    -webkit-transition: opacity .15s ease-in-out;
+}
 #content {
 	padding-top: 50px;
 }

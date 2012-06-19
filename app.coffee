@@ -26,5 +26,5 @@ app.get "/post/new", routes.newPost
 app.post "/post/new", routes.addPost
 app.get "/post/:id", routes.viewPost
 
-app.listen 3000, ->
+app.listen 80, ->
   console.log "Express server listening on port %d in %s mode", app.address().port, app.settings.env
