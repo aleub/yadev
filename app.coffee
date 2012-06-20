@@ -23,9 +23,11 @@ console.log routes
 
 app.get "/", routes.index
 app.get "/post/new", routes.newPost
+app.get "/post/edit/:id", routes.editPost
 app.get "/post/:id", routes.viewPost
 
 app.post "/post/new", routes.addPost
+app.post "/post/edit/:id", routes.savePost
 app.post "/post/remove/:id", routes.removePost
 
 app.listen 3000, ->

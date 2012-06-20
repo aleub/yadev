@@ -3,16 +3,12 @@ p Welcome to #{title}
 
 each post in posts
   article
-    h2 #{post.title}
-    .btn-group.inline
-        button.btn.btn-small
+    .btn-group
+        button.actions.btn.dropdown-toggle(data-toggle="dropdown")
           i.icon-cog
-          |  Admin
-        button.btn.dropdown-toggle(data-toggle="dropdown")
-          span.caret
         ul.dropdown-menu
           li
-            a
+            a(href="/post/edit/#{post._id}")
               i.icon-pencil
               |  Edit
           li
@@ -20,9 +16,9 @@ each post in posts
               i.icon-trash 
               |  Delete
           li
-            a
+            a.switch-pub-post(data-m-id="#{post._id}")
               i.icon-ban-circle
               |  Unpublish
-
+    h2 #{post.title}
     small (#{post.ts})
     blockquote !{post.body}

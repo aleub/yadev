@@ -1,0 +1,24 @@
+- if (post._id)
+  - var action_url = "/post/edit/" + post._id;
+- else
+  - var action_url = "/post/save/";
+
+form(method="post", action="#{action_url}")
+  fieldset
+    legend=title
+    .clearfix
+      label(for="title") Title
+      .input
+        input.input-xxlarge#title(type="text", name="post[title]", value=post.title)
+    .clearfix
+      label(for="post") Post
+      .input
+        textarea#post.input-xxlarge(name="post[body]", rows="16")
+          !{post.body}
+    .clearfix
+      label.checkbox(for="publish")
+        input#publish(type="checkbox", name="post[publish]")
+        | Publish Post
+    .form-actions
+      input.btn.btn-primary(type="submit", value="Save")
+      a.btn(href="/") Cancel

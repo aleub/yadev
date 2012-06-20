@@ -14,8 +14,34 @@ module.exports =
         posts: result
 
   newPost: (req, res) ->
-    res.render 'add_post',
+    res.render 'edit_post',
       title: "Write New Post"
+      post: {}
+
+  editPost: (req, res) ->
+    db_posts.findOne(_id: db.ObjectID.createFromHexString(req.params.id), (err, result) ->
+        console.log(result)
+        res.render 'edit_post',
+          title: "Edit Post",
+          post: result)
+
+  savePost: (req, res) ->
+    console.log(req.params)
+    console.log(req.body)
+    mid = db.ObjectID.createFromHexString(req.params.id)
+    console.log mid
+
+    db_posts.update((_id: mid), req.body.post, (err, result) ->
+      console.log "done"
+      console.log result
+
+      if err
+        res.render 'err',
+          title: 'damnit',
+          error: 'couldnt save'
+
+      res.redirect "/"
+    )
 
   addPost: (req, res) ->
     if req.body.post.title.length > 0 and req.body.post.body.length > 0
@@ -27,7 +53,7 @@ module.exports =
         res.redirect "/"
     else
       res.render 'err',
-        title: 'Oh snap, something went wrong',
+        title: 'Oh snap',
         error: 'title or body seems to be empty...'
 
   removePost: (req, res) ->

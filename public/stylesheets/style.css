@@ -2,9 +2,9 @@ body {
 	font-family: "Bree Serif", "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-button.remove-post {
+button.actions {
 	margin-left: 20px;
-	opacity: 0.1;
+	opacity: 0.5;
 	vertical-align: center;
 }
 
@@ -12,8 +12,12 @@ button.remove-post {
 	margin-top: 30px;
 }
 
-button.remove-post:hover {
-	opacity: .7;
+.btn-group.open button.actions {
+	opacity: 1;
+}
+
+button.actions:hover {
+	opacity: 1;
 	transition: opacity .15s ease-in-out;
 	-moz-transition: opacity .15s ease-in-out;
 	-webkit-transition: opacity .15s ease-in-out;
