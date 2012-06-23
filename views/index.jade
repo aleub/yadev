@@ -5,7 +5,7 @@ each post in posts
   article
     .btn-group
         button.actions.btn.dropdown-toggle(data-toggle="dropdown")
-          i.icon-cog
+          i.icon-wrench
         ul.dropdown-menu
           li
             a(href="/post/edit/#{post._id}")
@@ -16,9 +16,9 @@ each post in posts
               i.icon-trash 
               |  Delete
           li
-            a.switch-pub-post(data-m-id="#{post._id}")
-              i.icon-ban-circle
-              |  Unpublish
+            a.view-post(data-m-id="#{post._id}")
+              i.icon-eye-open
+              |  View
     h2 #{post.title}
     small (#{post.ts})
     blockquote !{post.body}

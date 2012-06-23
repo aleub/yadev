@@ -17,8 +17,12 @@ form(method="post", action="#{action_url}")
           !{post.body}
     .clearfix
       label.checkbox(for="publish")
-        input#publish(type="checkbox", name="post[publish]")
+        input#publish(type="checkbox", name="post[publish]", checked=post.publish)
         | Publish Post
+    .clearfix
+      label.checkbox(for="pin")
+        input#pin(type="checkbox", name="post[pin]", checked=post.pin)
+        | Pin Post
     .form-actions
       input.btn.btn-primary(type="submit", value="Save")
       a.btn(href="/") Cancel

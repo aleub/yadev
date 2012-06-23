@@ -1,0 +1,48 @@
+body {
+	font-family: "Bree Serif", "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+button.actions {
+	margin-left: 20px;
+	opacity: 0.5;
+	vertical-align: center;
+}
+
+#content article {
+	margin-top: 30px;
+}
+
+.btn-group.open button.actions {
+	opacity: 1;
+}
+
+button.actions:hover {
+	opacity: 1;
+	transition: opacity .15s ease-in-out;
+	-moz-transition: opacity .15s ease-in-out;
+	-webkit-transition: opacity .15s ease-in-out;
+}
+#content {
+	padding-top: 50px;
+}
+
+.navbar-fixed-top .brand {
+	padding-right: 0;
+	padding-left: 0;
+	margin-left: 20px;
+	font-size: 22px;
+	float: right;
+	font-weight: bold;
+	color: #f2f2f2;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .125);
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	transition: all .2s linear;
+}
+.dropdown-menu a {
+	cursor: pointer;
+}
+.dropdown-menu a [class^="icon-"], [class*=" icon-"] {
+	margin-top: 2px;
+	margin-right: 2px;
+}

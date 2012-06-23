@@ -1,5 +1,6 @@
 express = require("express")
 routes = require("./routes")
+routes_admin = require("./admin/routes")
 
 app = module.exports = express.createServer()
 app.configure ->
@@ -19,9 +20,9 @@ app.configure "development", ->
 app.configure "production", ->
   app.use express.errorHandler()
 
-console.log routes
 
 app.get "/", routes.index
+app.get "/:post_title", routes.viewPost
 app.get "/post/new", routes.newPost
 app.get "/post/edit/:id", routes.editPost
 app.get "/post/:id", routes.viewPost
@@ -31,4 +32,38 @@ app.post "/post/edit/:id", routes.savePost
 app.post "/post/remove/:id", routes.removePost
 
 app.listen 3000, ->
-  console.log "Express server listening on port %d in %s mode", app.address().port, app.settings.env
+  console.log "Yadev frontend listening on port %d in %s mode", app.address().port, app.settings.env
+
+
+app_admin = express.createServer()
+app_admin.configure ->
+  app_admin.set "views", __dirname + "/admin/views"
+  app_admin.set "view engine", "jade"
+  app_admin.use express.bodyParser()
+  app_admin.use express.static(__dirname + "/admin/public")
+  app_admin.use express.cookieParser()
+  app_admin.use express.session(
+    secret: "foobar"
+  )
+  app_admin.use app_admin.router
+
+app_admin.configure "development", ->
+  app_admin.use express.errorHandler
+    dumpExceptions: true
+    showStack: true
+
+app_admin.configure "production", ->
+  app_admin.use express.errorHandler()
+
+app_admin.get "/", routes_admin.login
+app_admin.post "/login", routes_admin.auth
+app_admin.get "/logout", routes_admin.logout
+
+app_admin.get "/dashboard", (req, res, next) ->  
+  if req.session.user
+   routes_admin.dashboard(req, res)
+  else
+    res.redirect '/'
+
+app_admin.listen 3001, ->
+  console.log "Yadev admin listening on port %d in %s mode", app_admin.address().port, app_admin.settings.env
