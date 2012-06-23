@@ -22,9 +22,19 @@ button.actions:hover {
 	-moz-transition: opacity .15s ease-in-out;
 	-webkit-transition: opacity .15s ease-in-out;
 }
-#content {
-	padding-top: 50px;
+
+.admin .container {
+  margin-top: 50px;
 }
+.admin.navbar-fixed-top {
+  margin-bottom: 18px;
+  position: static;
+}
+
+.admin.nav-admin {
+  width: 145px;
+}
+
 
 .navbar-fixed-top .brand {
 	padding-right: 0;

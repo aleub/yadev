@@ -13,6 +13,7 @@ module.exports =
   login: (req, res) ->
     res.render 'login',
       actions: {}
+      layout: 'layout_clean'
 
   logout: (req, res) ->
     req.session.destroy()
@@ -22,6 +23,7 @@ module.exports =
     if req.body.post.username != "root"
       delete req.session.user
       res.render 'login',
+        layout: 'layout_clean'
         actions: {
           error: "Nope!"
         }
