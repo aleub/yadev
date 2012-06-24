@@ -55,7 +55,8 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   }
 }
 [class^="icon-"], [class*=" icon-"] {
-  vertical-align: sub;
+ /*vertical-align: sub;*/
+ vertical-align: text-top;
 }
 
 .navbar .brand {

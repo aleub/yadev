@@ -1,5 +1,6 @@
 express = require("express")
 routes = require("./routes")
+{settings} = require('./settings')
 MongoStore = require("connect-mongo")(express)
 
 #db = require("mongoskin").db 'localhost:27017/yadev'
@@ -37,7 +38,7 @@ app.post "/post/save", routes.addPost
 app.post "/post/edit/:id", routes.savePost
 app.post "/post/remove/:id", routes.removePost
 
-app.listen 3000, ->
+app.listen settings.port_frontend || 3000, ->
   console.log "Yadev frontend listening on port %d in %s mode", app.address().port, app.settings.env
 
 
@@ -68,29 +69,42 @@ app_admin.get "/", routes_admin.login
 app_admin.post "/login", routes_admin.auth
 app_admin.get "/logout", routes_admin.logout
 
-check_session = (req, res, next) ->
+cs = (req, res, next) ->
   if req.session.user
     next()
   else
     res.redirect '/'
 
-app_admin.get "/dashboard", check_session, (req, res) ->
+app_admin.get "/dashboard", cs, (req, res) ->
   routes_admin.dashboard(req, res)
 
-app_admin.get "/articles", check_session, (req, res) ->
+app_admin.get "/articles", cs, (req, res) ->
   routes_admin.articles(req, res)
 
-app_admin.get "/media", check_session, (req, res) ->
+app_admin.get "/articles/new", cs, (req, res) ->
+  routes_admin.articles_new(req, res)
+
+app_admin.get "/articles/edit/:id", cs, (req, res) ->
+  routes_admin.articles_edit(req, res)
+
+app_admin.post "/articles/save/:id", cs, (req, res) ->
+  routes_admin.articles_save(req, res)
+
+app_admin.post "/articles/save", cs, (req, res) ->
+  routes_admin.articles_save(req, res)
+
+app_admin.get "/media", cs, (req, res) ->
   routes_admin.media(req, res)
 
-app_admin.get "/pages", check_session, (req, res) ->
+app_admin.get "/pages", cs, (req, res) ->
   routes_admin.pages(req, res)
 
-app_admin.get "/comments", check_session, (req, res) ->
+app_admin.get "/comments", cs, (req, res) ->
   routes_admin.comments(req, res)
 
-app_admin.get "/settings", check_session, (req, res) ->
+app_admin.get "/settings", cs, (req, res) ->
   routes_admin.settings(req, res)
 
-app_admin.listen 3001, ->
+
+app_admin.listen settings.port_admin || 3001, ->
   console.log "Yadev admin listening on port %d in %s mode", app_admin.address().port, app_admin.settings.env

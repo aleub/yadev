@@ -1,0 +1,32 @@
+- var action_url = "/articles/save" + (post._id ? '/' + post._id : '');
+
+.admin.navbar.navbar-fixed-top
+  !=partial('top_menu')
+
+.container
+  .row
+    .well.span
+      form(method="post", action="#{action_url}")
+        fieldset
+          legend=title
+          .clearfix
+            label(for="title") Title
+            .input
+              input.input-xxlarge#title(type="text", name="post[title]", value=post.title)
+          .clearfix
+            label(for="post") Post
+            .input
+              textarea#post.input-xxlarge(name="post[body]", rows="16")
+                !{post.body}
+          .clearfix
+            label.checkbox(for="publish")
+              input#publish(type="checkbox", name="post[publish]", checked=post.publish)
+              | Publish Post
+          .clearfix
+            label.checkbox(for="pin")
+              input#pin(type="checkbox", name="post[pin]", checked=post.pin)
+              | Pin Post
+          .form-actions
+            input.pull-right.btn.btn-primary(type="submit", value="Save")
+            a.pull-left.btn(href="/") Cancel
+

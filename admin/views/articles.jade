@@ -1,12 +1,12 @@
 .admin.navbar.navbar-fixed-top
   !=partial('top_menu')
- 
+
 .container
   .row
     .well.span12
       h2="Articles"
       em
-        a(href="/post/new") Create
+        a(href="/articles/new") Create
       table.table.table-striped
         thead
           tr
@@ -23,7 +23,9 @@
               td
                 .input
                   input(type='checkbox')
-              td #{art.title}
+              td
+                a(href="/articles/edit/#{art._id}")
+                  #{art.title}
               td #{art.ts}
               td
                 span.badge.badge-inverse 10

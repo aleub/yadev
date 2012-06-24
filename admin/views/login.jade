@@ -14,19 +14,21 @@
         button.close(data-dismiss="alert") ×
         #{actions.warn}
 
+.row
+  .span4.offset4
     form(method="post", action="/login")
       fieldset
         legend="Login"
         .clearfix
           label(for="username") Username
           .input
-            input#username.input-xlarge(type="text", name="post[username]")
-            p.help-block="(root)"
+            input#username.span4(type="text", name="post[username]")
+            p.help-block="(admin)"
         .clearfix
           label(for="password") Password
           .input
-            input#password.input-xlarge(type="password", name="post[password]")
-            p.help-block="(blank for now)"
+            input#password.span4(type="password", name="post[password]")
+            p.help-block="(foobar)"
         .form-actions
-          input.btn.btn-primary(type="submit", value="Login")
+          input.btn.pull-right.btn-primary(type="submit", value="Login")
           a.btn(href="/") Cancel
