@@ -4,19 +4,19 @@
   !=partial('top_menu')
 
 .container
-  .row
-    .well.span
+  .row-fluid
+    .well.span6
       form(method="post", action="#{action_url}")
         fieldset
           legend=title
           .clearfix
             label(for="title") Title
             .input
-              input.input-xxlarge#title(type="text", name="post[title]", value=post.title)
+              input#title.span(type="text", name="post[title]", value=post.title)
           .clearfix
             label(for="post") Post
             .input
-              textarea#post.input-xxlarge(name="post[body]", rows="16")
+              textarea#post.span(name="post[body]", rows="16")
                 !{post.body}
           .clearfix
             label.checkbox(for="publish")
@@ -28,5 +28,9 @@
               | Pin Post
           .form-actions
             input.pull-right.btn.btn-primary(type="submit", value="Save")
-            a.pull-left.btn(href="/") Cancel
-
+            a.btn(href="/") Cancel
+    .well.span6
+      legend
+        | Preview
+      pre
+        #{post.body}

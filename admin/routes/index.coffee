@@ -53,6 +53,7 @@ module.exports =
       )
 
   articles_save: (req, res) ->
+    console.log req.body.post.body
     req.body.post.publish = req.body.post.publish == 'on' || false
     req.body.post.pin = req.body.post.pin == 'on' || false
 
