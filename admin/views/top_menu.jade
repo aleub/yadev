@@ -1,0 +1,30 @@
+.navbar-inner
+  .container
+    a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    a.brand(href="/dashboard") Dashboard
+    a.close.btn(href='/logout') Logout
+    .nav-collapse.collapse
+      ul.nav
+        li(class=(current=="articles" ? 'active' : ''))
+          a(href='/articles')
+            i.icon-bullhorn.icon-white
+            |Articles
+        li(class=(current=="media" ? 'active' : ''))
+          a(href='/media')
+            i.icon-picture.icon-white
+            |Media
+        li(class=(current=="pages" ? 'active' : ''))
+          a(href='/pages')
+            i.icon-file.icon-white
+            |Pages
+        li(class=(current=="comments" ? 'active' : ''))
+          a(href='/comments')
+            i.icon-comment.icon-white
+            |Comments
+        li(class=(current=="settings" ? 'active' : ''))
+          a(href='/settings')
+            i.icon-cog.icon-white
+            |Settings

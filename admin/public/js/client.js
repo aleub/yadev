@@ -2,12 +2,12 @@
 (function() {
 
   $("document").ready(function() {
+    var mq;
     console.log("doc ready");
-    return $('a.remove-post').on('click', function(el) {
+    $('a.remove-post').on('click', function(el) {
       var $this;
       $this = $(this);
       return $.post('/post/remove/' + (($(this)).data('m-id')), function(res) {
-        console.log($this.parents('article'));
         return $this.parents('article').animate({
           opacity: 0
         }, 250, function() {
@@ -15,6 +15,13 @@
         });
       });
     });
+    if (window.matchMedia) {
+      mq = window.matchMedia('(max-width: 767px)');
+      mq.addListener(function(meq) {
+        return $('.nav-admin > ul.nav').removeClass("nav-list nav-pills").addClass(meq.matches ? "nav-pills" : "nav-list");
+      });
+      return $('.nav-admin > ul.nav').removeClass("nav-list nav-pills").addClass(mq.matches ? "nav-pills" : "nav-list");
+    }
   });
 
 }).call(this);

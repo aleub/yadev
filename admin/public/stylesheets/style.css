@@ -1,3 +1,9 @@
+* {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
 body {
 	font-family: "Bree Serif", "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -24,19 +30,39 @@ button.actions:hover {
 }
 
 .admin .container {
-  margin-top: 50px;
+  /*margin-top: 50px;*/
 }
 .admin.navbar-fixed-top {
   margin-bottom: 18px;
   position: static;
 }
 
-.admin.nav-admin {
-  width: 145px;
+@media (max-width: 767px) {
+  .admin .nav-admin {
+    width: auto;
+  }
 }
 
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+ -webkit-box-sizing: content-box;
+ -moz-box-sizing: content-box;
+ box-sizing: content-box;
+}
 
-.navbar-fixed-top .brand {
+@media (max-width: 979px) and (min-width: 768px) {
+  .admin .nav-admin {
+    font-size: 12px;
+  }
+}
+[class^="icon-"], [class*=" icon-"] {
+  vertical-align: sub;
+}
+
+.navbar .brand {
+  margin-left: 0;
+}
+
+.foobar .navbar-fixed-top .brand {
 	padding-right: 0;
 	padding-left: 0;
 	margin-left: 20px;

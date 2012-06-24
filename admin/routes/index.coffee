@@ -8,7 +8,33 @@ moment.lang 'de'
 module.exports =
   dashboard: (req, res) ->
     req.session.accessTime = moment()
-    res.render 'dashboard'
+    res.render 'dashboard',
+      current: 'dashboard'
+
+  articles: (req, res) ->
+    db_posts.find().toArray (err, result) ->
+      _.each result, (el) ->
+        el.ts = moment(el.timestamp).fromNow()
+
+      res.render 'articles',
+        articles: result
+        current: 'articles'
+
+  media: (req, res) ->
+    res.render 'media',
+      current: 'media'
+
+  pages: (req, res) ->
+    res.render 'pages',
+      current: 'pages'
+
+  comments: (req, res) ->
+    res.render 'comments',
+      current: 'comments'
+
+  settings: (req, res) ->
+    res.render 'settings',
+      current: 'settings'
 
   login: (req, res) ->
     res.render 'login',

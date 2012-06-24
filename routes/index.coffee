@@ -52,7 +52,7 @@ module.exports =
           title: 'damnit',
           error: 'couldnt save'
 
-      res.redirect "/"
+      res.redirect "/"      
     )
 
   addPost: (req, res) ->

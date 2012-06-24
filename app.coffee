@@ -1,5 +1,10 @@
 express = require("express")
 routes = require("./routes")
+MongoStore = require("connect-mongo")(express)
+
+#db = require("mongoskin").db 'localhost:27017/yadev'
+
+gzippo = require("gzippo")
 routes_admin = require("./admin/routes")
 
 app = module.exports = express.createServer()
@@ -28,6 +33,7 @@ app.get "/post/edit/:id", routes.editPost
 app.get "/post/:id", routes.viewPost
 
 app.post "/post/new", routes.addPost
+app.post "/post/save", routes.addPost
 app.post "/post/edit/:id", routes.savePost
 app.post "/post/remove/:id", routes.removePost
 
@@ -44,8 +50,11 @@ app_admin.configure ->
   app_admin.use express.cookieParser()
   app_admin.use express.session(
     secret: "foobar"
+    store: new MongoStore(db: 'yadev')
   )
   app_admin.use app_admin.router
+  app_admin.use gzippo.staticGzip(__dirname + '/admin/public')
+  app_admin.use gzippo.compress()
 
 app_admin.configure "development", ->
   app_admin.use express.errorHandler
@@ -59,11 +68,29 @@ app_admin.get "/", routes_admin.login
 app_admin.post "/login", routes_admin.auth
 app_admin.get "/logout", routes_admin.logout
 
-app_admin.get "/dashboard", (req, res, next) ->  
+check_session = (req, res, next) ->
   if req.session.user
-   routes_admin.dashboard(req, res)
+    next()
   else
     res.redirect '/'
+
+app_admin.get "/dashboard", check_session, (req, res) ->
+  routes_admin.dashboard(req, res)
+
+app_admin.get "/articles", check_session, (req, res) ->
+  routes_admin.articles(req, res)
+
+app_admin.get "/media", check_session, (req, res) ->
+  routes_admin.media(req, res)
+
+app_admin.get "/pages", check_session, (req, res) ->
+  routes_admin.pages(req, res)
+
+app_admin.get "/comments", check_session, (req, res) ->
+  routes_admin.comments(req, res)
+
+app_admin.get "/settings", check_session, (req, res) ->
+  routes_admin.settings(req, res)
 
 app_admin.listen 3001, ->
   console.log "Yadev admin listening on port %d in %s mode", app_admin.address().port, app_admin.settings.env

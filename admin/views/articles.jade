@@ -1,0 +1,29 @@
+.admin.navbar.navbar-fixed-top
+  !=partial('top_menu')
+ 
+.container
+  .row
+    .well.span12
+      h2="Articles"
+      em
+        a(href="/post/new") Create
+      table.table.table-striped
+        thead
+          tr
+            th
+              .input
+                input(type='checkbox')
+            th='Title'
+            th='Date'
+            th
+              i.icon-comment
+        tbody
+          each art in articles
+            tr
+              td
+                .input
+                  input(type='checkbox')
+              td #{art.title}
+              td #{art.ts}
+              td
+                span.badge.badge-inverse 10
