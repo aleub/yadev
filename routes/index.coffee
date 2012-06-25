@@ -3,16 +3,14 @@ db_posts = db.collection 'posts'
 
 {_} = require "underscore"
 moment = require "moment"
-moment.lang 'de'
-
-
 
 module.exports =
   index: (req, res) ->
     db_posts.find().toArray (err, result) ->
       _.each result, (el) ->
         console.log el
-        el.ts = moment(el.timestamp).format('LLLL')
+        #       el.ts = moment(el.timestamp).format('LLLL')
+        el.ts = moment(el.timestamp).fromNow()
 
       res.render "index",
         title: "yadev - yet another dev blog"

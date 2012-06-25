@@ -1,48 +1,62 @@
 body {
-	font-family: "Bree Serif", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 400 24px/33px "Gentium Basic", "Bree Serif", Georgia, "Lucida Grande", Helvetica, Arial;
+  background-color: #FAFAFA;
 }
 
-button.actions {
-	margin-left: 20px;
-	opacity: 0.5;
-	vertical-align: center;
-}
-
-#content article {
-	margin-top: 30px;
-}
-
-.btn-group.open button.actions {
-	opacity: 1;
-}
-
-button.actions:hover {
-	opacity: 1;
-	transition: opacity .15s ease-in-out;
-	-moz-transition: opacity .15s ease-in-out;
-	-webkit-transition: opacity .15s ease-in-out;
-}
 #content {
-	padding-top: 50px;
+  padding-top: 50px;
 }
 
-.navbar-fixed-top .brand {
-	padding-right: 0;
-	padding-left: 0;
-	margin-left: 20px;
-	font-size: 22px;
-	float: right;
-	font-weight: bold;
-	color: #f2f2f2;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .125);
-	-webkit-transition: all .2s linear;
-	-moz-transition: all .2s linear;
-	transition: all .2s linear;
+figure {
+  border-left: 6px solid #F0F0F0;
+  padding: 13px 0 13px 37px;
+  margin-left: -43px;
+  color: #505050;
+  line-height: 53px;
 }
-.dropdown-menu a {
-	cursor: pointer;
+
+figure p {
+  text-indent: -17px;
+  font-size: 40px;
 }
-.dropdown-menu a [class^="icon-"], [class*=" icon-"] {
-	margin-top: 2px;
-	margin-right: 2px;
+
+figure figcaption {
+  font-size: 22px;
+  text-indent: 0;
+  display: block;
+  font-style: italic;
+}
+
+article {
+  margin-top: 60px;
+  line-height: 38px;
+  text-rendering: optimizelegibility;
+  vertical-align: baseline;
+}
+
+article section {
+  margin-bottom: 25px;
+}
+
+article header {
+  margin-bottom: 25px;
+}
+
+article header h2 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+article header em {
+  font-size: 16px;
+}
+
+article section p {
+  margin-bottom: 25px;
+}
+
+::selection {
+  background: #141414;
+  color: white;
+  text-shadow: none;
 }

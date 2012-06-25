@@ -5,7 +5,6 @@ db_posts = db.collection 'posts'
 
 {_} = require "underscore"
 moment = require "moment"
-moment.lang 'de'
 
 module.exports =
   dashboard: (req, res) ->
@@ -60,7 +59,13 @@ module.exports =
     if req.params.id
       mid = db.ObjectID.createFromHexString(req.params.id)
       db_posts.findOne(_id: mid, (err, result) ->
-        db_posts.update((_id: mid), _.extend(result, req.body.post), (err, result) ->
+        db_posts.update(
+          _id: mid,
+          _.extend(
+            result,
+            req.body.post,
+            updated_at: moment().valueOf()
+          ), (err, result) ->
           if err
             res.render 'err',
               title: 'damnit',
@@ -70,7 +75,11 @@ module.exports =
         )
       )
     else
-      data = _.extend(req.body.post, timestamp: moment().valueOf())
+      data = _.extend(
+        req.body.post,
+        timestamp: moment().valueOf(),
+        updated_at: moment().valueOf()
+      )
       db_posts.insert data, (err, result) ->
         throw err if err
         res.redirect '/articles'
