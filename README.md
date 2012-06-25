@@ -5,6 +5,12 @@ yadev blog
 
 personal site project to get the coffee/nodejs/jade/bdd stuff...
 
+# Demo
+everyone loves demos, so here a (hopefully) working demo:
+http://79.125.10.39/
+http://79.125.10.39:3001
+
+
 # Usage
 to use the src you need a recent version of nodejs and coffee-script.
 
