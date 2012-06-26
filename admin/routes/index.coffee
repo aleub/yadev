@@ -24,10 +24,13 @@ module.exports =
         current: 'articles'
 
   articles_new: (req, res) ->
-    res.render 'edit_post',
-      current: 'articles'
-      post: {}
-      title: 'Create a new Article'
+    #get categories
+    db_posts.distinct 'category', {}, (err, result_cat) ->
+      res.render 'edit_post',
+        current: 'articles'
+        post: {}
+        title: 'Create a new Article'
+        category_list: JSON.stringify result_cat
 
   articles_edit: (req, res) ->
     if (req.params.id.length == 12 or req.params.id.length == 24)
@@ -46,7 +49,6 @@ module.exports =
             error: 'cant find the article'
         else
           db_posts.distinct 'category', {}, (err, result_cat) ->
-            console.log err, result_cat
             res.render 'edit_post',
               current: 'articles'
               post: result

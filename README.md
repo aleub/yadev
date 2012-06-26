@@ -7,7 +7,13 @@ personal site project to get the coffee/nodejs/jade/bdd stuff...
 
 # Demo
 everyone loves demos, so here a (hopefully) working demo:
+
+the blog itself/frontend:
+
 http://79.125.10.39/
+
+
+admin:
 http://79.125.10.39:3001
 
 
