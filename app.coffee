@@ -29,14 +29,7 @@ app.configure "production", ->
 
 app.get "/", routes.index
 app.get "/:post_title", routes.viewPost
-app.get "/post/new", routes.newPost
-app.get "/post/edit/:id", routes.editPost
 app.get "/post/:id", routes.viewPost
-
-app.post "/post/new", routes.addPost
-app.post "/post/save", routes.addPost
-app.post "/post/edit/:id", routes.savePost
-app.post "/post/remove/:id", routes.removePost
 
 app.listen settings.port_frontend || 3000, ->
   console.log "Yadev frontend listening on port %d in %s mode", app.address().port, app.settings.env
@@ -92,6 +85,9 @@ app_admin.post "/articles/save/:id", cs, (req, res) ->
 
 app_admin.post "/articles/save", cs, (req, res) ->
   routes_admin.articles_save(req, res)
+
+app_admin.post "/articles/remove", cs, (req, res) ->
+  routes_admin.articles_remove(req, res)
 
 app_admin.get "/media", cs, (req, res) ->
   routes_admin.media(req, res)

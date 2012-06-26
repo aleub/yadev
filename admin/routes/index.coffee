@@ -84,6 +84,20 @@ module.exports =
         throw err if err
         res.redirect '/articles'
 
+  articles_remove: (req, res) ->
+    ids = [].concat req.body.ids
+    dbids = []
+
+    _.each(ids, (id) ->
+      dbids.push db.ObjectID.createFromHexString(id)
+    )
+
+    db_posts.remove(
+      _id: $in: dbids
+    )
+
+    res.redirect "/articles"
+
   media: (req, res) ->
     res.render 'media',
       current: 'media'

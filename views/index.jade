@@ -13,4 +13,7 @@
             h2 #{post.title}
             em (#{post.ts})
           section
-            !{post.body}
+            !{post.body} 
+
+          a(href="/#{post.title}")
+            i.icon-share
