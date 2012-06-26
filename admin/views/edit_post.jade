@@ -21,11 +21,18 @@
           .clearfix
             label.checkbox(for="publish")
               input#publish(type="checkbox", name="post[publish]", checked=post.publish)
-              | Publish Post
+              | Publish
           .clearfix
             label.checkbox(for="pin")
               input#pin(type="checkbox", name="post[pin]", checked=post.pin)
-              | Pin Post
+              | Pin
+          .clearfix.control-group
+              label.control-label(for="category") Category
+              .controls
+                .input-append
+                  input#category(type="text", name="post[category]", data-provide="typeahead", data-items="4", data-source=category_list, value=post.category, autocomplete='off')
+                  span.add-on
+                    i.icon-bookmark
           .form-actions
             input.pull-right.btn.btn-primary(type="submit", value="Save")
             a.btn(href="/articles") Cancel

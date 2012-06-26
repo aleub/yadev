@@ -6,9 +6,8 @@ moment = require "moment"
 
 module.exports =
   index: (req, res) ->
-    db_posts.find().toArray (err, result) ->
+    db_posts.find(publish: true).sort(pin: -1, timestamp: -1).toArray (err, result) ->
       _.each result, (el) ->
-        console.log el
         el.ts = moment(el.timestamp).fromNow()
 
       res.render "index",
@@ -27,4 +26,11 @@ module.exports =
         res.render "post",
           post: result
 
-      console.log result
+  viewCategory: (req, res) ->
+    db_posts.find(category: req.params.category).sort(pin: -1, timestamp: -1).toArray (err, result) ->
+      _.each result, (el) ->
+        el.ts = moment(el.timestamp).fromNow()
+      res.render "index",
+        title: "yadev - " + req.params.category
+        posts: result
+

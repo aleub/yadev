@@ -26,9 +26,14 @@ app.configure "development", ->
 app.configure "production", ->
   app.use express.errorHandler()
 
-
+  ###checkCategory = (req, res, next) ->
+  db_posts.distinct('category', category: req.params.post_title, (err, result) ->
+    if not err and result.length == 1
+      routes.viewCategory(req, res)
+      ###
 app.get "/", routes.index
 app.get "/:post_title", routes.viewPost
+app.get "/cat/:category", routes.viewCategory
 app.get "/post/:id", routes.viewPost
 
 app.listen settings.port_frontend || 3000, ->

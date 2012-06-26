@@ -45,10 +45,13 @@ module.exports =
             title: 'oops',
             error: 'cant find the article'
         else
-          res.render 'edit_post',
-            current: 'articles'
-            post: result
-            title: 'Edit Article'
+          db_posts.distinct 'category', {}, (err, result_cat) ->
+            console.log err, result_cat
+            res.render 'edit_post',
+              current: 'articles'
+              post: result
+              title: 'Edit Article'
+              category_list: JSON.stringify(result_cat)
       )
 
   articles_save: (req, res) ->
