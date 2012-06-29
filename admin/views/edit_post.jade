@@ -15,29 +15,50 @@
               input#title.span(type="text", name="post[title]", value=post.title)
           .clearfix
             label(for="post") Post
-            .input
-              textarea#post.span(name="post[body]", rows="16")
-                !{post.body}
+            #ace-editor.span
+              !{post.body}
+            input#post(type="hidden", name="post[body]", rows="16")
           .clearfix
-            label.checkbox(for="publish")
-              input#publish(type="checkbox", name="post[publish]", checked=post.publish)
-              | Publish
+            .span3
+              .control-group
+                .control-label Article
+                .controls
+                  label.checkbox(for="pin")
+                    input#pin(type="checkbox", name="post[pin]", checked=post.pin)
+                    | Pin
+                  label.checkbox(for="publish")
+                    input#publish(type="checkbox", name="post[publish]", checked=post.publish)
+                    | Publish
+            .span3
+              .control-group
+                .control-label Templating
+                .controls
+                  label.radio
+                    input(type='radio', name="post[templating]", id="templating_jade", value="jade", checked=post.templating==='jade')
+                    | Jade
+                  label.radio
+                    input(type='radio', name="post[templating]", id="templating_html", value="html", checked=post.templating==='html')
+                    | Html
+                  label.radio
+                    input(type='radio', name="post[templating]", id="templating_markdown", value="markdown", checked=post.templating==='markdown')
+                    | Markdown
           .clearfix
-            label.checkbox(for="pin")
-              input#pin(type="checkbox", name="post[pin]", checked=post.pin)
-              | Pin
-          .clearfix.control-group
-              label.control-label(for="category") Category
-              .controls
-                .input-append
-                  input#category(type="text", name="post[category]", data-provide="typeahead", data-items="4", data-source=category_list, value=post.category, autocomplete='off')
-                  span.add-on
-                    i.icon-bookmark
-          .form-actions
-            input.pull-right.btn.btn-primary(type="submit", value="Save")
-            a.btn(href="/articles") Cancel
+            .span
+              .control-group
+                .control-label Category
+                .controls
+                  .input-append
+                    input#category(type="text", name="post[category]", data-provide="typeahead", data-items="4", data-source=category_list, value=post.category, autocomplete='off')
+                    span.add-on
+                      i.icon-bookmark
+          .clearfix
+            .span
+              .form-actions
+                input.pull-right.btn.btn-primary(type="submit", value="Save")
+                a.btn(href="/articles") Cancel
     .well.span6
       legend
-        | Preview
-      pre
+        small (soon live)
+        |  Preview
+      .preview
         #{post.body}

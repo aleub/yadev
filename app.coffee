@@ -94,6 +94,9 @@ app_admin.post "/articles/save", cs, (req, res) ->
 app_admin.post "/articles/remove", cs, (req, res) ->
   routes_admin.articles_remove(req, res)
 
+app_admin.post "/compile", cs, (req, res) ->
+  routes_admin.compile(req, res)
+
 app_admin.get "/media", cs, (req, res) ->
   routes_admin.media(req, res)
 

@@ -5,6 +5,7 @@ db_posts = db.collection 'posts'
 
 {_} = require "underscore"
 moment = require "moment"
+jade = require 'jade'
 
 module.exports =
   dashboard: (req, res) ->
@@ -57,7 +58,7 @@ module.exports =
       )
 
   articles_save: (req, res) ->
-    console.log req.body.post.body
+    console.log req.body.post
     req.body.post.publish = req.body.post.publish == 'on' || false
     req.body.post.pin = req.body.post.pin == 'on' || false
 
@@ -102,6 +103,19 @@ module.exports =
     )
 
     res.redirect "/articles"
+
+  compile: (req, res) ->
+    console.log 'compile', req.body.templating , req.body
+    if req.body.templating == "jade"
+      jade_fn = jade.compile(req.body.src, {})
+      foo = jade_fn({})
+      console.log foo
+      res.send html: foo
+    else
+      foo = require( "markdown" ).markdown.toHTML(req.body.src)
+      console.log foo
+      res.send html: foo
+
 
   media: (req, res) ->
     res.render 'media',

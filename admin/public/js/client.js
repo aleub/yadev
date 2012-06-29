@@ -2,8 +2,16 @@
 (function() {
 
   $("document").ready(function() {
-    var mq;
+    var $editor_element, editor, live, mq;
     console.log("doc ready");
+    $editor_element = $('#ace-editor');
+    editor = ace.edit('ace-editor');
+    editor.getSession().setTabSize(2);
+    $editor_element.closest('form').submit(function() {
+      var code;
+      code = editor.getValue();
+      return $('#post').val(code);
+    });
     $('a.remove-post').on('click', function(el) {
       var $this;
       $this = $(this);
@@ -20,8 +28,26 @@
       mq.addListener(function(meq) {
         return $('.nav-admin > ul.nav').removeClass("nav-list nav-pills").addClass(meq.matches ? "nav-pills" : "nav-list");
       });
-      return $('.nav-admin > ul.nav').removeClass("nav-list nav-pills").addClass(mq.matches ? "nav-pills" : "nav-list");
+      $('.nav-admin > ul.nav').removeClass("nav-list nav-pills").addClass(mq.matches ? "nav-pills" : "nav-list");
     }
+    live = {
+      fetch: function(val) {
+        var obj;
+        obj = $.extend({}, {
+          templating: $("input[type='radio']:checked").val(),
+          src: val
+        });
+        return $.post('/compile', obj, function(rc) {
+          if (rc && rc.html) {
+            console.log(rc.html);
+            return $('.preview').html(rc.html);
+          }
+        });
+      }
+    };
+    return editor.getSession().on('change', function(foobar) {
+      return live.fetch(editor.getSession().getValue());
+    });
   });
 
 }).call(this);

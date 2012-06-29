@@ -34,6 +34,24 @@ button.actions:hover {
   position: static;
 }
 
+.admin .tpl-container {
+  /*padding-top: 5px;*/
+}
+
+.admin #post, .admin #title {
+  width: 100%;
+}
+
+.add-on [class^="icon-"], .add-on [class*=" icon-"] {
+    vertical-align: middle;
+}
+.admin #ace-editor {
+  position: relative;
+  height: 500px;
+  width: 530px;
+  margin-bottom: 20px;
+}
+
 @media (max-width: 767px) {
   .admin .nav-admin {
     width: auto;
