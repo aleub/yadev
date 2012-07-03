@@ -1,7 +1,10 @@
 db = require("mongoskin").db 'localhost:27017/yadev'
 db_posts = db.collection 'posts'
+jade = require 'jade'
 
+{markdown} = require 'markdown'
 {_} = require "underscore"
+
 moment = require "moment"
 
 module.exports =
@@ -9,6 +12,17 @@ module.exports =
     db_posts.find(publish: true).sort(pin: -1, timestamp: -1).toArray (err, result) ->
       _.each result, (el) ->
         el.ts = moment(el.timestamp).fromNow()
+        if el.templating == "jade"
+          jade_fn = jade.compile(el.body, {})
+          foo = jade_fn({})
+          el.body = foo
+        else
+          bar = {}
+          bar.foo = JSON.stringify(el.body)
+
+          foo = markdown.toHTML(bar.foo)
+          el.body = foo
+          console.log(bar)
 
       res.render "index",
         title: "yadev - yet another dev blog"

@@ -20,6 +20,8 @@ module.exports =
         el.ts = moment(el.timestamp).fromNow()
         console.log el.timestamp
 
+      console.log result
+
       res.render 'articles',
         articles: result
         current: 'articles'
@@ -109,13 +111,10 @@ module.exports =
     if req.body.templating == "jade"
       jade_fn = jade.compile(req.body.src, {})
       foo = jade_fn({})
-      console.log foo
       res.send html: foo
     else
       foo = require( "markdown" ).markdown.toHTML(req.body.src)
-      console.log foo
       res.send html: foo
-
 
   media: (req, res) ->
     res.render 'media',
