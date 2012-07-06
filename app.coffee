@@ -109,6 +109,9 @@ app_admin.get "/comments", cs, (req, res) ->
 app_admin.get "/settings", cs, (req, res) ->
   routes_admin.settings(req, res)
 
+app_admin.post "/settings/save", cs, (req, res) ->
+  routes_admin.settings_save(req, res)
+
 
 app_admin.listen settings.port_admin || 3001, ->
   console.log "Yadev admin listening on port %d in %s mode", app_admin.address().port, app_admin.settings.env

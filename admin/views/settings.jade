@@ -1,7 +1,28 @@
 .admin.navbar.navbar-fixed-top
   !=partial('top_menu')
- 
+
 .container
   .row
-    .well.span12
-      h2="Settings"
+    .well.span4.offset3
+      form(method="post", action="/settings/save")
+        fieldset
+          legend="Settings"
+          .clearfix
+            label(for="name") Your name
+            .input
+              input#name(type="text", name="settings[name]", value=settings.name)
+          .clearfix
+            label(for="email") Email
+            .input
+              input#email(type="text", name="settings[email]", value=settings.email)
+          .clearfix
+            label(for="theme")
+              span(rel="popover", data-content="There should be a folder for each theme in /public/themes", data-original-title="Themes") Theme 
+            .input
+              select#theme(name="settings[theme]")
+                for theme in themes
+                  option(selected=theme === settings.theme) #{theme}
+          .clearfix
+            .form-actions
+              input.pull-right.btn.btn-primary(type="submit", value="Save")
+              a.btn(href="/settings") Cancel

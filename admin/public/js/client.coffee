@@ -1,15 +1,37 @@
 $("document").ready ->
   console.log("doc ready")
 
+  preview =
+    render: (val) ->
+      obj = $.extend({}, templating: $("input[type='radio']:checked").val(), src: val)
+      $.post('/compile', obj, (rc) ->
+        if rc && rc.html
+          console.log rc.html
+          $('.preview').html(rc.html)
+      )
+
   $editor_element = $('#ace-editor')
-  editor = ace.edit 'ace-editor'
 
-  editor.getSession().setTabSize(2)
+  if $editor_element[0]
+    editor = ace.edit 'ace-editor'
 
-  $editor_element.closest('form').submit( ->
-    code = editor.getValue()
-    $('#post').val(code)
-  )
+    editor.getSession().setTabSize(2)
+
+    $editor_element.closest('form').submit( ->
+      code = editor.getValue()
+      $('#post').val(code)
+    )
+
+
+    editor.getSession().on('change', () ->
+      preview.render(editor.getSession().getValue())
+    )
+
+    preview.render(editor.getSession().getValue())
+
+
+  ##shiny stuff
+  $("[rel='popover']").popover();
 
   $('a.remove-post').on 'click', (el) ->
     $this = $ this
@@ -29,15 +51,4 @@ $("document").ready ->
       .removeClass("nav-list nav-pills")
       .addClass(if mq.matches then "nav-pills" else "nav-list")
 
-  live =
-    fetch: (val) ->
-      obj = $.extend({}, templating: $("input[type='radio']:checked").val(), src: val)
-      $.post('/compile', obj, (rc) ->
-        if rc && rc.html
-          console.log rc.html
-          $('.preview').html(rc.html)
-      )
 
-  editor.getSession().on('change', (foobar) ->
-   live.fetch(editor.getSession().getValue())
-  )

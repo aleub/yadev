@@ -34,14 +34,11 @@
                 .control-label Templating
                 .controls
                   label.radio
-                    input(type='radio', name="post[templating]", id="templating_jade", value="jade", checked=post.templating==='jade')
-                    | Jade
+                    input(type='radio', name="post[templating]", id="templating_markdown", value="markdown", checked=post.templating==='markdown')
+                    | Markdown
                   label.radio
                     input(type='radio', name="post[templating]", id="templating_html", value="html", checked=post.templating==='html')
                     | Html
-                  label.radio
-                    input(type='radio', name="post[templating]", id="templating_markdown", value="markdown", checked=post.templating==='markdown')
-                    | Markdown
           .clearfix
             .span
               .control-group
@@ -58,7 +55,6 @@
                 a.btn(href="/articles") Cancel
     .well.span6
       legend
-        small (soon live)
         |  Preview
       .preview
         #{post.body}
