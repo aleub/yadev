@@ -16,6 +16,13 @@
             .input
               input#email(type="text", name="settings[email]", value=settings.email)
           .clearfix
+            label(for="hostname") Hostname
+            .input
+              input#hostname(type="text", name="settings[hostname]", value=settings.hostname)
+              p.help-block
+                | Something like 
+                i http://unfuckingfassbar.com/blog
+          .clearfix
             label(for="theme")
               span(rel="popover", data-content="There should be a folder for each theme in /public/themes", data-original-title="Themes") Theme 
             .input
