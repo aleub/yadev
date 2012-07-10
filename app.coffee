@@ -26,15 +26,12 @@ app.configure "development", ->
 app.configure "production", ->
   app.use express.errorHandler()
 
-  ###checkCategory = (req, res, next) ->
-  db_posts.distinct('category', category: req.params.post_title, (err, result) ->
-    if not err and result.length == 1
-      routes.viewCategory(req, res)
-      ###
 app.get "/", routes.index
+app.get "/res/combined.:type", routes.combineResources
 app.get "/:post_title", routes.viewPost
 app.get "/cat/:category", routes.viewCategory
 app.get "/post/:id", routes.viewPost
+app.post "/comment/:id", routes.addComment
 
 app.listen settings.port_frontend || 3000, ->
   console.log "Yadev frontend listening on port %d in %s mode", app.address().port, app.settings.env
@@ -68,6 +65,7 @@ app_admin.post "/login", routes_admin.auth
 app_admin.get "/logout", routes_admin.logout
 
 cs = (req, res, next) ->
+  console.log req.route.path
   if req.session.user
     next()
   else

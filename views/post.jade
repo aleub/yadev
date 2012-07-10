@@ -1,5 +1,10 @@
 .row
   .span8.offset2
+    figure
+      p
+        |yadev
+      figcaption
+        | — yet another developer blog
     section
       article
         header
@@ -7,3 +12,15 @@
           em (#{post.ts})
         section
           !{post.body}
+        section.comments
+          form(action="/comment/#{post._id}", method="post")
+            legend
+              em Add your 2&cent;
+            .clearfix
+              input#comment_name.input-xlarge(type="text",name='comment[name]', placeholder="Your Name")
+            .clearfix
+              input#comment_email.input-xlarge(type="email",name='comment[mail]', placeholder="Email")
+            .clearfix
+              textarea#comment_msg.input-xlarge(placeholder="Leave a message...", name='comment[post]')
+            .clearfix
+              button.btn.btn-primary Post

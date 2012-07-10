@@ -1,9 +1,8 @@
-routes = require "../routes/"
-should = require "should"
+{settings} = require('../settings')
 
-describe "feature", ->
-  it "should add two numbers", ->
-    (2+2).should.equal 4
+routes = require "../admin/routes/"
+should = require "should"
+sys = require 'sys'
 
 describe "basic test setup", ->
   it "should have should", ->
@@ -15,23 +14,52 @@ describe "basic test setup", ->
     should.exist require 'http'
     should.exist require('underscore')._
 
-
 describe "routes", ->
   req = {}
   res = {}
-  describe "index", ->
-    it "should display index with posts", (done)->
-      res =
-        render: (view, vars) ->
-          view.should.equal "index"
-          vars.title.should.equal "yadev - yet another dev blog"
-          done()
-      routes.index(req, res)
+  describe "compile", ->
+    it "should return valid html", (done)->
+      res.send = (value) ->
+        value.html.should.equal "<h1>foobar</h1>"
+        done()
+      req.body =
+        templating: 'markdown',
+        src: "#foobar"
 
-describe "new post", ->
-  it "should display the add post page", (done)->
-    res.render = (view, vars) ->
-      view.should.equal "add_post"
-      vars.title.should.equal "Write New Post"
-      done()
-    routes.newPost req, res
+      routes.compile(req, res)
+  describe "auth", ->
+    it "shouldn't let anybody in", (done)->
+      req.body = post :
+        username: "anybody"
+        password:  "empty"
+      req.session = {}
+
+      res.render = (view, data) ->
+        view.should.equal "login"
+        done()
+
+      routes.auth(req, res)
+    it "should let admin in ", (done)->
+      req.body = post:
+        username: settings.user_admin
+        password: settings.pwd_admin
+      req.session = {}
+
+      res.redirect = (val) ->
+        val.should.eql "/dashboard"
+        req.session.user.should.eql settings.user_admin
+        done()
+
+      routes.auth(req, res)
+    it "should logout cleanly", (done)->
+      req.session = { alive: true}
+
+      req.session.destroy = ->
+        @.alive = false
+
+      res.redirect = (val) ->
+        val.should.eql "/"
+        req.session.alive.should.not.be.ok
+        done()
+
+      routes.logout(req, res)

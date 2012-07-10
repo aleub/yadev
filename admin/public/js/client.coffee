@@ -22,13 +22,11 @@ $("document").ready ->
       $('#post').val(code)
     )
 
-
     editor.getSession().on('change', () ->
       preview.render(editor.getSession().getValue())
     )
 
     preview.render(editor.getSession().getValue())
-
 
   ##shiny stuff
   $("[rel='popover']").popover();
@@ -50,5 +48,3 @@ $("document").ready ->
     $('.nav-admin > ul.nav')
       .removeClass("nav-list nav-pills")
       .addClass(if mq.matches then "nav-pills" else "nav-list")
-
-
