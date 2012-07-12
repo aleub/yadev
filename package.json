@@ -10,7 +10,9 @@
 		"moment": ">= 1.6.2",
     "gzippo": ">= 0.1.6",
     "connect-mongo": ">=0.1.9",
-    "markdown": ">=0.0.1"
+    "markdown": ">=0.0.1",
+    "gh-markdown": ">=0.0.1",
+    "github-flavored-markdown": "*"
 	},
 	"devDependencies": {
 	"mocha": "1.1.0",

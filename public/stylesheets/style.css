@@ -60,3 +60,16 @@ article section p {
   color: white;
   text-shadow: none;
 }
+
+.comments header {
+  padding-bottom: 5px;
+}
+
+.comments header h3 {
+  margin-right: 20px;
+}
+
+.comments header img {
+  margin-right: 20px;
+  border-radius: 50%;
+}

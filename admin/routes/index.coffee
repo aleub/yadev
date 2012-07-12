@@ -8,6 +8,8 @@ db_posts = db.collection 'posts'
 {_} = require "underscore"
 moment = require "moment"
 jade = require 'jade'
+Markdown = require 'github-flavored-markdown'
+markdown = Markdown.parse
 
 articles_controller = require("../controllers/articles")
 settings_controller = require("../controllers/settings")
@@ -26,8 +28,8 @@ module.exports =
       foo = jade_fn({})
       res.send html: foo
     else
-      foo = require( "markdown" ).markdown.toHTML(req.body.src)
-      res.send html: foo
+      out = markdown req.body.src
+      res.send html: out
 
   media: (req, res) ->
     res.render 'media',

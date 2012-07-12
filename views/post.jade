@@ -13,9 +13,18 @@
         section
           !{post.body}
         section.comments
+          h3 Comments
+          each comment in comments
+            header
+              img(src="http://www.gravatar.com/avatar/#{comment.gravatar_hash}?s=40&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D38&r=G")
+              h3(style="display: inline;") #{comment.name}
+              em #{comment.created_at}
+            section
+              .well
+                p #{comment.post}
           form(action="/comment/#{post._id}", method="post")
             legend
-              em Add your 2&cent;
+              h3 Leave a Comment
             .clearfix
               input#comment_name.input-xlarge(type="text",name='comment[name]', placeholder="Your Name")
             .clearfix
