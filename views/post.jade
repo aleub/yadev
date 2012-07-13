@@ -22,6 +22,12 @@
             section
               .well
                 p #{comment.post}
+              .rating
+                .span.pull-right 0
+                  a(href='#')
+                    i.icon-thumbs-up
+                  a(href='#')
+                    i.icon-thumbs-down
           form(action="/comment/#{post._id}", method="post")
             legend
               h3 Leave a Comment

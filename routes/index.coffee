@@ -71,7 +71,7 @@ module.exports =
           error: "couldnt find post '#{req.params.post_title}'"
       else
         result.ts = moment(result.timestamp).fromNow()
-
+        result.body = markdown result.body
         #find comments
         db_comments.find('article_id' : result._id).toArray (err_c, result_c) ->
           _.each result_c, (el_c) ->
