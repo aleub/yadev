@@ -102,3 +102,13 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 	margin-top: 2px;
 	margin-right: 2px;
 }
+
+#inputFiles {
+  width: 192px;
+  height: 216px;
+  display: block;
+  -webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}

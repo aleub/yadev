@@ -14,6 +14,7 @@ markdown = Markdown.parse
 articles_controller = require("../controllers/articles")
 settings_controller = require("../controllers/settings")
 auth_controller = require("../controllers/auth")
+media_controller = require("../controllers/media")
 
 module.exports =
   dashboard: (req, res) ->
@@ -31,9 +32,6 @@ module.exports =
       out = markdown req.body.src
       res.send html: out
 
-  media: (req, res) ->
-    res.render 'media',
-      current: 'media'
 
   pages: (req, res) ->
     res.render 'pages',
@@ -43,4 +41,4 @@ module.exports =
     res.render 'comments',
       current: 'comments'
 
-_.extend(module.exports, articles_controller.routes, settings_controller.routes, auth_controller.routes)
+_.extend(module.exports, articles_controller.routes, settings_controller.routes, auth_controller.routes, media_controller.routes)

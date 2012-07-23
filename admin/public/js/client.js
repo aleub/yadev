@@ -2,7 +2,7 @@
 (function() {
 
   $("document").ready(function() {
-    var $editor_element, editor, mq, preview;
+    var $editor_element, editor, holder, mq, preview;
     console.log("doc ready");
     preview = {
       render: function(val) {
@@ -50,7 +50,46 @@
       mq.addListener(function(meq) {
         return $('.nav-admin > ul.nav').removeClass("nav-list nav-pills").addClass(meq.matches ? "nav-pills" : "nav-list");
       });
-      return $('.nav-admin > ul.nav').removeClass("nav-list nav-pills").addClass(mq.matches ? "nav-pills" : "nav-list");
+      $('.nav-admin > ul.nav').removeClass("nav-list nav-pills").addClass(mq.matches ? "nav-pills" : "nav-list");
+    }
+    holder = $('#inputFiles');
+    console.log(holder);
+    if (holder) {
+      holder.on('drop', function(e) {
+        var file, files, formdata, opts, _i, _len;
+        files = e.originalEvent.files || e.originalEvent.dataTransfer.files;
+        formdata = new FormData();
+        for (_i = 0, _len = files.length; _i < _len; _i++) {
+          file = files[_i];
+          opts = {
+            'X-File-Name': file.name,
+            'X-File-Type': file.type,
+            'X-File-Size': file.size
+          };
+          formdata.append('Files[]', file);
+        }
+        console.log(formdata);
+        if (formdata) {
+          return $.ajax({
+            url: '/media/upload',
+            type: 'POST',
+            data: formdata,
+            processData: false,
+            contentType: false,
+            success: function(res) {
+              return console.log("success", res);
+            }
+          });
+        }
+      });
+      holder.on('dragenter', function(e) {
+        $(this).css("border", "dotted 5px grey");
+        return $(this).css("border-radius", "10px");
+      });
+      return holder.on('dragleave', function(e) {
+        console.log('dragleave');
+        return $(this).css("border", "none");
+      });
     }
   });
 

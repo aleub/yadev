@@ -37,7 +37,6 @@ $("document").ready ->
       $this.parents('article').animate {opacity: 0}, 250, ->
         ($ @).remove()
 
-
   if window.matchMedia
     mq = window.matchMedia('(max-width: 767px)')
     mq.addListener (meq) ->
@@ -48,3 +47,39 @@ $("document").ready ->
     $('.nav-admin > ul.nav')
       .removeClass("nav-list nav-pills")
       .addClass(if mq.matches then "nav-pills" else "nav-list")
+
+  #filedrop stuff
+  holder = $ '#inputFiles'
+  console.log holder
+  if holder
+    holder.on 'drop', (e) ->
+      files = e.originalEvent.files || e.originalEvent.dataTransfer.files
+      formdata = new FormData()
+
+      for file in files
+        opts = {
+          'X-File-Name' : file.name
+          'X-File-Type' : file.type
+          'X-File-Size' : file.size
+        }
+        formdata.append 'Files[]', file
+      console.log formdata
+      if formdata
+        $.ajax {
+          url: '/media/upload',
+          type: 'POST',
+          data: formdata,
+          processData: false,
+          contentType: false,
+          success: (res) ->
+            console.log "success", res
+        }
+
+    holder.on 'dragenter', (e) ->
+      $(@).css "border", "dotted 5px grey"
+      $(@).css "border-radius", "10px"
+    holder.on 'dragleave', (e) ->
+      console.log 'dragleave'
+      $(@).css "border", "none"
+
+

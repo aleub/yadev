@@ -5,7 +5,6 @@ moment = require "moment"
 db = require("mongoskin").db 'localhost:27017/' + settings.db
 db_posts = db.collection 'posts'
 
-
 module.exports =
   count: (callback) ->
     db_posts.find().count (err, result) ->

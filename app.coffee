@@ -4,10 +4,8 @@ routes = require("./routes")
 MongoStore = require("connect-mongo")(express)
 cluster = require 'cluster'
 
-#db = require("mongoskin").db 'localhost:27017/yadev'
 
-gzippo = require("gzippo")
-routes_admin = require("./admin/routes")
+#check mongo
 
 app = module.exports = express.createServer()
 app.configure ->
@@ -44,6 +42,8 @@ app.listen settings.port_frontend || 3000, ->
 ###
 #ADMIN
 ###
+routes_admin = require("./admin/routes")
+
 app_admin = express.createServer()
 app_admin.configure ->
   app_admin.set "views", __dirname + "/admin/views"
@@ -87,6 +87,7 @@ app_admin.post "/articles/remove", check_session, routes_admin.articles_remove
 app_admin.post "/compile", check_session, routes_admin.compile
 
 app_admin.get  "/media", check_session, routes_admin.media
+app_admin.post  "/media/upload", check_session, routes_admin.upload
 app_admin.get  "/pages", check_session, routes_admin.pages
 app_admin.get  "/comments", check_session, routes_admin.comments
 
