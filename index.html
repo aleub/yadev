@@ -1,1 +1,189 @@
-foobar
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8' />
+    <title></title>
+  <style>
+    /* http://meyerweb.com/eric/tools/css/reset/
+       v2.0 | 20110126
+       License: none (public domain)
+    */
+
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section {
+      display: block;
+    }
+    body {
+      line-height: 1;
+    }
+    ol, ul {
+      list-style: none;
+    }
+    blockquote, q {
+      quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+      content: '';
+      content: none;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    /* CUSTOM start*/
+    * {
+      margin: 0;
+    }
+
+    body {
+      background: #3D4349;
+      font-family: "Open Sans", "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .left-col {
+      width: 22%;
+      position: fixed;
+      opacity: .35;
+      height: 100%;
+    }
+
+    .right-col {
+      float: right;
+      width: 78%;
+      background: whitesmoke;
+    }
+
+    .right-col .quotes {
+      width: 100%;
+      color: #999;
+      padding: 30px 0;
+      text-align: center;
+      line-height: 30px;
+      position: relative;
+      border-top: 1px solid #fff;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .right-col .content {
+      padding: 0px 70px 0px 40px;
+    }
+
+    .right-col .content article {
+      border-bottom : 1px solid #ddd;
+      padding: 30px 0;
+      position: relative;
+    }
+
+    .right-col .footer {
+      width: 100%;
+      padding: 15px 0;
+      border-top: 1px solid #fff;
+      text-align: center;
+      font-size: 0.9em;
+    }
+
+    header h1 {
+      color: #EFEFEF;
+      text-shadow: 0 1px #333;
+    }
+
+    header small {
+      line-height: 2;
+    }
+
+    .container .left-col header {
+      width: 100%;
+      padding: 20% 0% 0% 15%;
+    }
+
+    h1 {
+      font-size: 1.8em;
+    }
+    article h1.title {
+      font-weight: 300;
+      line-height: 35px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    article .entry-text {
+      line-height: 2;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+  <div class='container'>
+    <div class='left-col'>
+      <header class="inner">
+        <h1>{ yadev }</h1>
+        <small>yet another developer</small>
+      </header>
+    </div>
+    <div class='right-col'>
+      <div class="quotes">
+        <span>Stay hungry, stay foolish.</span>
+      </div>
+      <div class="content">
+        <article>
+          <h1 class='title'>Lorem Ipsum</h1>
+          <div class="entry-text">
+            <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. Es hat nicht nur 5 Jahrhunderte überlebt, sondern auch in Spruch in die elektronische Schriftbearbeitung geschafft (bemerke, nahezu unverändert). Bekannt wurde es 1960, mit dem erscheinen von "Letraset", welches Passagen von Lorem Ipsum enhielt, so wie Desktop Software wie "Aldus PageMaker" - ebenfalls mit Lorem Ipsum.</p>
+          </div>
+        </article>
+        <article>
+          <h1 class='title'>Lorem Ipsum</h1>
+          <div class="entry-text">
+            <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. Es hat nicht nur 5 Jahrhunderte überlebt, sondern auch in Spruch in die elektronische Schriftbearbeitung geschafft (bemerke, nahezu unverändert). Bekannt wurde es 1960, mit dem erscheinen von "Letraset", welches Passagen von Lorem Ipsum enhielt, so wie Desktop Software wie "Aldus PageMaker" - ebenfalls mit Lorem Ipsum.</p>
+          </div>
+        </article>
+        <article>
+          <h1 class='title'>Lorem Ipsum</h1>
+          <div class="entry-text">
+            <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. Es hat nicht nur 5 Jahrhunderte überlebt, sondern auch in Spruch in die elektronische Schriftbearbeitung geschafft (bemerke, nahezu unverändert). Bekannt wurde es 1960, mit dem erscheinen von "Letraset", welches Passagen von Lorem Ipsum enhielt, so wie Desktop Software wie "Aldus PageMaker" - ebenfalls mit Lorem Ipsum.</p>
+          </div>
+        </article>
+        <article>
+          <h1 class='title'>Lorem Ipsum</h1>
+          <div class="entry-text">
+            <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. Es hat nicht nur 5 Jahrhunderte überlebt, sondern auch in Spruch in die elektronische Schriftbearbeitung geschafft (bemerke, nahezu unverändert). Bekannt wurde es 1960, mit dem erscheinen von "Letraset", welches Passagen von Lorem Ipsum enhielt, so wie Desktop Software wie "Aldus PageMaker" - ebenfalls mit Lorem Ipsum.</p>
+          </div>
+        </article>
+        <article>
+          <h1 class='title'>Lorem Ipsum</h1>
+          <div class="entry-text">
+            <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. Es hat nicht nur 5 Jahrhunderte überlebt, sondern auch in Spruch in die elektronische Schriftbearbeitung geschafft (bemerke, nahezu unverändert). Bekannt wurde es 1960, mit dem erscheinen von "Letraset", welches Passagen von Lorem Ipsum enhielt, so wie Desktop Software wie "Aldus PageMaker" - ebenfalls mit Lorem Ipsum.</p>
+          </div>
+        </article>
+      </div>
+      <div class='footer'>
+        <p>yadev &dash; leubner.andre@gmail.com</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
