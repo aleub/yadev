@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
     <meta charset='UTF-8' />
-    <title></title>
+    <title>yadev</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='fonts.css' rel='stylesheet' type='text/css'>
 
@@ -58,6 +58,9 @@
     /* CUSTOM start*/
     * {
       margin: 0;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
     }
 
     body {
@@ -129,6 +132,10 @@
       zoom: 1;
     }
 
+    .left-col header h1 a {
+      color: #EFEFEF;
+    }
+
     header, nav {
       line-height: 30px;
     }
@@ -140,9 +147,9 @@
 
     header.inner > small > span {
       color: #999;
-      font-style: italic;
       font-weight: bold;
     }
+
     .container .left-col nav {
       width: 100%;
       padding: 20% 0% 0% 15%;
@@ -178,13 +185,52 @@
       outline-width: 0;
     }
 
+    @media screen and (max-width: 1000px) {
+      .left-col header h1 {
+        font-size: 2.2em;
+      }
+
+      header.inner > small {
+        line-height: 2;
+        font-size: 0.9em;
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      .container .right-col {
+        float: none;
+        width: 100%;
+      }
+
+      .container .left-col {
+        position: relative;
+        float: none;
+        width: 100%;
+      }
+
+      nav ul li{
+        display: inline;
+        margin-right: 10px;
+      }
+
+      .container .left-col nav {
+        text-align: center;
+        padding: 20px 0px;
+      }
+
+      .container .left-col header {
+        padding: 40px 0px;
+        text-align: center;
+      }
+    }
+
   </style>
 </head>
 <body>
   <div class='container'>
     <div class='left-col'>
       <header class="inner">
-        <h1>{ yadev }</h1>
+        <h1><a href="#">{ yadev }</a></h1>
         <small><span>y</span>et <span>a</span>nother <span>dev</span>eloper</small>
       </header>
 
