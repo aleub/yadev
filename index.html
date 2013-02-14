@@ -3,6 +3,9 @@
 <head>
     <meta charset='UTF-8' />
     <title></title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='fonts.css' rel='stylesheet' type='text/css'>
+
   <style>
     /* http://meyerweb.com/eric/tools/css/reset/
        v2.0 | 20110126
@@ -59,10 +62,15 @@
 
     body {
       background: #3D4349;
-      font-family: "Open Sans", "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
-      font-weight: 300;
-      font-size: 14px;
+      background: rgb(39, 40, 44);
+      font-family: "ff-tisa-web-pro", "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-weight: 400;
+      font-size: 16px;
       color: #666;
+    }
+
+    .left-col:hover {
+      opacity: 1;
     }
 
     .left-col {
@@ -70,6 +78,12 @@
       position: fixed;
       opacity: .35;
       height: 100%;
+
+      -webkit-transition: opacity .2s ease-in;
+      -moz-transition: opacity .2s ease-in;
+      -o-transition: opacity .2s ease-in;
+      -ms-transition: opacity .2s ease-in;
+      transition: opacity .2s ease-in;
     }
 
     .right-col {
@@ -107,13 +121,31 @@
       font-size: 0.9em;
     }
 
-    header h1 {
+    .left-col header h1 {
       color: #EFEFEF;
+      font-size: 2.8em;
       text-shadow: 0 1px #333;
+      padding-bottom: 10px;
+      zoom: 1;
     }
 
-    header small {
+    header, nav {
+      line-height: 30px;
+    }
+
+    header.inner > small {
       line-height: 2;
+      font-size: 1.1em;
+    }
+
+    header.inner > small > span {
+      color: #999;
+      font-style: italic;
+      font-weight: bold;
+    }
+    .container .left-col nav {
+      width: 100%;
+      padding: 20% 0% 0% 15%;
     }
 
     .container .left-col header {
@@ -134,6 +166,18 @@
       line-height: 2;
       text-align: justify;
     }
+
+    nav ul li a {
+      color: #EFEFEF;
+      text-shadow: 0 1px #333;
+      zoom: 1;
+    }
+
+    a {
+      text-decoration: none;
+      outline-width: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -141,8 +185,17 @@
     <div class='left-col'>
       <header class="inner">
         <h1>{ yadev }</h1>
-        <small>yet another developer</small>
+        <small><span>y</span>et <span>a</span>nother <span>dev</span>eloper</small>
       </header>
+
+      <nav>
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
     </div>
     <div class='right-col'>
       <div class="quotes">
@@ -185,5 +238,19 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38500704-1']);
+  _gaq.push(['_setDomainName', 'yadev.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </body>
 </html>
