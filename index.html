@@ -3,243 +3,23 @@
 <head>
     <meta charset='UTF-8' />
     <title>yadev</title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link href='fonts.css' rel='stylesheet' type='text/css'>
-
-  <style>
-    /* http://meyerweb.com/eric/tools/css/reset/
-       v2.0 | 20110126
-       License: none (public domain)
-    */
-
-    html, body, div, span, applet, object, iframe,
-    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-    a, abbr, acronym, address, big, cite, code,
-    del, dfn, em, img, ins, kbd, q, s, samp,
-    small, strike, strong, sub, sup, tt, var,
-    b, u, i, center,
-    dl, dt, dd, ol, ul, li,
-    fieldset, form, label, legend,
-    table, caption, tbody, tfoot, thead, tr, th, td,
-    article, aside, canvas, details, embed,
-    figure, figcaption, footer, header, hgroup,
-    menu, nav, output, ruby, section, summary,
-    time, mark, audio, video {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font-size: 100%;
-      font: inherit;
-      vertical-align: baseline;
-    }
-    /* HTML5 display-role reset for older browsers */
-    article, aside, details, figcaption, figure,
-    footer, header, hgroup, menu, nav, section {
-      display: block;
-    }
-    body {
-      line-height: 1;
-    }
-    ol, ul {
-      list-style: none;
-    }
-    blockquote, q {
-      quotes: none;
-    }
-    blockquote:before, blockquote:after,
-    q:before, q:after {
-      content: '';
-      content: none;
-    }
-    table {
-      border-collapse: collapse;
-      border-spacing: 0;
-    }
-    /* CUSTOM start*/
-    * {
-      margin: 0;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #3D4349;
-      background: rgb(39, 40, 44);
-      font-family: "ff-tisa-web-pro", "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
-      font-weight: 400;
-      font-size: 16px;
-      color: #666;
-    }
-
-    .left-col:hover {
-      opacity: 1;
-    }
-
-    .left-col {
-      width: 22%;
-      position: fixed;
-      opacity: .35;
-      height: 100%;
-
-      -webkit-transition: opacity .2s ease-in;
-      -moz-transition: opacity .2s ease-in;
-      -o-transition: opacity .2s ease-in;
-      -ms-transition: opacity .2s ease-in;
-      transition: opacity .2s ease-in;
-    }
-
-    .right-col {
-      float: right;
-      width: 78%;
-      background: whitesmoke;
-    }
-
-    .right-col .quotes {
-      width: 100%;
-      color: #999;
-      padding: 30px 0;
-      text-align: center;
-      line-height: 30px;
-      position: relative;
-      border-top: 1px solid #fff;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .right-col .content {
-      padding: 0px 70px 0px 40px;
-    }
-
-    .right-col .content article {
-      border-bottom : 1px solid #ddd;
-      padding: 30px 0;
-      position: relative;
-    }
-
-    .right-col .footer {
-      width: 100%;
-      padding: 15px 0;
-      border-top: 1px solid #fff;
-      text-align: center;
-      font-size: 0.9em;
-    }
-
-    .left-col header h1 {
-      color: #EFEFEF;
-      font-size: 2.8em;
-      text-shadow: 0 1px #333;
-      padding-bottom: 10px;
-      zoom: 1;
-    }
-
-    .left-col header h1 a {
-      color: #EFEFEF;
-    }
-
-    header, nav {
-      line-height: 30px;
-    }
-
-    header.inner > small {
-      line-height: 2;
-      font-size: 1.1em;
-    }
-
-    header.inner > small > span {
-      color: #999;
-      font-weight: bold;
-    }
-
-    .container .left-col nav {
-      width: 100%;
-      padding: 20% 0% 0% 15%;
-    }
-
-    .container .left-col header {
-      width: 100%;
-      padding: 20% 0% 0% 15%;
-    }
-
-    h1 {
-      font-size: 1.8em;
-    }
-    article h1.title {
-      font-weight: 300;
-      line-height: 35px;
-      margin-bottom: 20px;
-      color: #333;
-    }
-    article .entry-text {
-      line-height: 2;
-      text-align: justify;
-    }
-
-    nav ul li a {
-      color: #EFEFEF;
-      text-shadow: 0 1px #333;
-      zoom: 1;
-    }
-
-    a {
-      text-decoration: none;
-      outline-width: 0;
-    }
-
-    @media screen and (max-width: 1000px) {
-      .left-col header h1 {
-        font-size: 2.2em;
-      }
-
-      header.inner > small {
-        line-height: 2;
-        font-size: 0.9em;
-      }
-    }
-
-    @media screen and (max-width: 700px) {
-      .container .right-col {
-        float: none;
-        width: 100%;
-      }
-
-      .container .left-col {
-        position: relative;
-        float: none;
-        width: 100%;
-      }
-
-      nav ul li{
-        display: inline;
-        margin-right: 10px;
-      }
-
-      .container .left-col nav {
-        text-align: center;
-        padding: 20px 0px;
-      }
-
-      .container .left-col header {
-        padding: 40px 0px;
-        text-align: center;
-      }
-    }
-
-  </style>
+    <link href='css/reset.css' rel='stylesheet' type='text/css'>
+    <link href='css/fonts.css' rel='stylesheet' type='text/css'>
+    <link href='css/blog.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <div class='container'>
     <div class='left-col'>
       <header class="inner">
-        <h1><a href="#">{ yadev }</a></h1>
+        <h1><a href="/">{ yadev }</a></h1>
         <small><span>y</span>et <span>a</span>nother <span>dev</span>eloper</small>
       </header>
-
       <nav>
         <ul>
           <li><a href="#">Blog</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -247,56 +27,90 @@
       <div class="quotes">
         <span>Stay hungry, stay foolish.</span>
       </div>
-      <div class="content">
+      <div class="content page_home" data-href="#">
+        <h1>Blog</h1>
         <article>
-          <h1 class='title'>Lorem Ipsum</h1>
+          <h3 class='title'>Lorem Ipsum</h3>
           <div class="entry-text">
             <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. Es hat nicht nur 5 Jahrhunderte überlebt, sondern auch in Spruch in die elektronische Schriftbearbeitung geschafft (bemerke, nahezu unverändert). Bekannt wurde es 1960, mit dem erscheinen von "Letraset", welches Passagen von Lorem Ipsum enhielt, so wie Desktop Software wie "Aldus PageMaker" - ebenfalls mit Lorem Ipsum.</p>
           </div>
         </article>
         <article>
-          <h1 class='title'>Lorem Ipsum</h1>
+          <h3 class='title'>Lorem Ipsum</h3>
           <div class="entry-text">
             <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. Es hat nicht nur 5 Jahrhunderte überlebt, sondern auch in Spruch in die elektronische Schriftbearbeitung geschafft (bemerke, nahezu unverändert). Bekannt wurde es 1960, mit dem erscheinen von "Letraset", welches Passagen von Lorem Ipsum enhielt, so wie Desktop Software wie "Aldus PageMaker" - ebenfalls mit Lorem Ipsum.</p>
           </div>
         </article>
         <article>
-          <h1 class='title'>Lorem Ipsum</h1>
+          <h3 class='title'>Lorem Ipsum</h3>
           <div class="entry-text">
             <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. Es hat nicht nur 5 Jahrhunderte überlebt, sondern auch in Spruch in die elektronische Schriftbearbeitung geschafft (bemerke, nahezu unverändert). Bekannt wurde es 1960, mit dem erscheinen von "Letraset", welches Passagen von Lorem Ipsum enhielt, so wie Desktop Software wie "Aldus PageMaker" - ebenfalls mit Lorem Ipsum.</p>
           </div>
         </article>
         <article>
-          <h1 class='title'>Lorem Ipsum</h1>
+          <h3 class='title'>Lorem Ipsum</h3>
           <div class="entry-text">
             <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. Es hat nicht nur 5 Jahrhunderte überlebt, sondern auch in Spruch in die elektronische Schriftbearbeitung geschafft (bemerke, nahezu unverändert). Bekannt wurde es 1960, mit dem erscheinen von "Letraset", welches Passagen von Lorem Ipsum enhielt, so wie Desktop Software wie "Aldus PageMaker" - ebenfalls mit Lorem Ipsum.</p>
           </div>
         </article>
         <article>
-          <h1 class='title'>Lorem Ipsum</h1>
+          <h3 class='title'>Lorem Ipsum</h3>
           <div class="entry-text">
             <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. Es hat nicht nur 5 Jahrhunderte überlebt, sondern auch in Spruch in die elektronische Schriftbearbeitung geschafft (bemerke, nahezu unverändert). Bekannt wurde es 1960, mit dem erscheinen von "Letraset", welches Passagen von Lorem Ipsum enhielt, so wie Desktop Software wie "Aldus PageMaker" - ebenfalls mit Lorem Ipsum.</p>
           </div>
         </article>
+      </div>
+      <div class="content page_about " data-href="#about">
+        <h1>about</h1>     <article>
+          <h3 class='title'>Lorem Ipsum</h3>
+          <div class="entry-text">
+            <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. Es hat nicht nur 5 Jahrhunderte überlebt, sondern auch in Spruch in die elektronische Schriftbearbeitung geschafft (bemerke, nahezu unverändert). Bekannt wurde es 1960, mit dem erscheinen von "Letraset", welches Passagen von Lorem Ipsum enhielt, so wie Desktop Software wie "Aldus PageMaker" - ebenfalls mit Lorem Ipsum.</p>
+          </div>
+        </article>
+        <article>
+          <h3 class='title'>Lorem Ipsum</h3>
+          <div class="entry-text">
+            <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. Es hat nicht nur 5 Jahrhunderte überlebt, sondern auch in Spruch in die elektronische Schriftbearbeitung geschafft (bemerke, nahezu unverändert). Bekannt wurde es 1960, mit dem erscheinen von "Letraset", welches Passagen von Lorem Ipsum enhielt, so wie Desktop Software wie "Aldus PageMaker" - ebenfalls mit Lorem Ipsum.</p>
+          </div>
+        </article>
+      </div>
+      <div class="content page_projects" data-href="#projects">
+        <h1>projects</h1>     <article>
+          <h3 class='title'>Lorem Ipsum</h3>
+          <div class="entry-text">
+            <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. Es hat nicht nur 5 Jahrhunderte überlebt, sondern auch in Spruch in die elektronische Schriftbearbeitung geschafft (bemerke, nahezu unverändert). Bekannt wurde es 1960, mit dem erscheinen von "Letraset", welches Passagen von Lorem Ipsum enhielt, so wie Desktop Software wie "Aldus PageMaker" - ebenfalls mit Lorem Ipsum.</p>
+          </div>
+        </article>
+        <article>
+          <h3 class='title'>Lorem Ipsum</h3>
+          <div class="entry-text">
+            <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. Es hat nicht nur 5 Jahrhunderte überlebt, sondern auch in Spruch in die elektronische Schriftbearbeitung geschafft (bemerke, nahezu unverändert). Bekannt wurde es 1960, mit dem erscheinen von "Letraset", welches Passagen von Lorem Ipsum enhielt, so wie Desktop Software wie "Aldus PageMaker" - ebenfalls mit Lorem Ipsum.</p>
+          </div>
+        </article>
+      </div>
+      <div class="content page_contact" data-href="#contact">
+        <h1>contact</h1><article>
+          <h3 class='title'>Lorem Ipsum</h3>
+          <div class="entry-text">
+            <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. Es hat nicht nur 5 Jahrhunderte überlebt, sondern auch in Spruch in die elektronische Schriftbearbeitung geschafft (bemerke, nahezu unverändert). Bekannt wurde es 1960, mit dem erscheinen von "Letraset", welches Passagen von Lorem Ipsum enhielt, so wie Desktop Software wie "Aldus PageMaker" - ebenfalls mit Lorem Ipsum.</p>
+          </div>
+        </article>
+        <article>
+          <h3 class='title'>Lorem Ipsum</h3>
+          <div class="entry-text">
+            <p>Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine Hand voll Wörter nahm und diese durcheinander warf um ein Musterbuch zu erstellen. Es hat nicht nur 5 Jahrhunderte überlebt, sondern auch in Spruch in die elektronische Schriftbearbeitung geschafft (bemerke, nahezu unverändert). Bekannt wurde es 1960, mit dem erscheinen von "Letraset", welches Passagen von Lorem Ipsum enhielt, so wie Desktop Software wie "Aldus PageMaker" - ebenfalls mit Lorem Ipsum.</p>
+          </div>
+        </article>
+
       </div>
       <div class='footer'>
         <p>yadev &dash; leubner.andre@gmail.com</p>
       </div>
     </div>
   </div>
-  <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38500704-1']);
-  _gaq.push(['_setDomainName', 'yadev.org']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="js/vendor/jquery.scrollspy.js" charset="utf-8"></script>
+  <script src="js/vendor/routie.min.js" charset="utf-8"></script>
+  <script src="js/blog.js" charset="utf-8"></script>
 </body>
 </html>
