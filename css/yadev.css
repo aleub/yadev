@@ -132,6 +132,10 @@ audio:not([controls]),
     text-decoration: none;
     outline-width: 0;
   }
+  body,
+  html {
+    height: 100%;
+  }
   body {
     background: #27282c;
     font-family: "ff-tisa-web-pro", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -145,7 +149,6 @@ audio:not([controls]),
     opacity: 0.35;
     filter: alpha(opacity=35);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=35)";
-    height: 100%;
     padding: 40px 0px;
     -webkit-transition: opacity 0.2s ease-in;
     -moz-transition: opacity 0.2s ease-in;
@@ -191,6 +194,7 @@ audio:not([controls]),
   body > section.content-col {
     float: right;
     width: 78%;
+    min-height: 100%;
     background: #f5f5f5;
   }
   body > section.content-col > header h1 {
@@ -225,11 +229,13 @@ audio:not([controls]),
     line-height: 1.4;
   }
   body > section.content-col article footer {
+    border-bottom: 1px solid #ddd;
+  }
+  body > section.content-col footer {
     padding: 30px 0;
     text-align: center;
     font-size: 0.9em;
     width: 100%;
-    border-bottom: 1px solid #ddd;
   }
 }
 @media screen and (max-width: 1000px) {
