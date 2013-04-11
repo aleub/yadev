@@ -149,12 +149,14 @@ audio:not([controls]),
     opacity: 0.35;
     filter: alpha(opacity=35);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=35)";
+    min-height: 100%;
     padding: 40px 0px;
-    -webkit-transition: opacity 0.2s ease-in;
-    -moz-transition: opacity 0.2s ease-in;
-    -o-transition: opacity 0.2s ease-in;
-    -ms-transition: opacity 0.2s ease-in;
-    transition: opacity 0.2s ease-in;
+    background: url("/img/noise.png"), -webkit-radial-gradient(top left, 150px 150px, #34363b, #27282c);
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
   }
   body > header h1 {
     color: #efefef;
@@ -252,6 +254,8 @@ audio:not([controls]),
     position: relative;
     float: none;
     width: 100%;
+    min-height: auto;
+    background: -webkit-radial-gradient(top center, 150px 90px, #34363b, #27282c);
   }
   body > header h1,
   body > header h4 {
@@ -276,5 +280,12 @@ audio:not([controls]),
   body > section.content-col {
     float: none;
     width: 100%;
+  }
+}
+@media handheld {
+  body > header {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
   }
 }

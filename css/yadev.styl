@@ -26,9 +26,11 @@ reset-html5()
       width: 22%
       position: fixed
       opacity: .35
+      min-height: 100%
       padding: 40px 0px;
+      background: url("/img/noise.png"), -webkit-radial-gradient(top left,150px 150px,rgb(52,54, 59), rgb(39, 40, 44));
 
-      transition(opacity .2s ease-in)
+      transition(all .2s ease-in)
 
       h1
         color: #EFEFEF;
@@ -124,6 +126,8 @@ reset-html5()
       position: relative
       float: none
       width: 100%
+      min-height: auto
+      background: -webkit-radial-gradient(top center,150px 90px,rgb(52,54, 59), rgb(39, 40, 44));
 
       h1, h4
         text-align: center;
@@ -146,3 +150,7 @@ reset-html5()
   body > section.content-col
     float: none
     width: 100%
+
+@media handheld
+  body > header
+    opacity: .8
