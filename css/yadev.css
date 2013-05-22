@@ -11,7 +11,7 @@ audio:not([controls]),[hidden]{display:none}
 a{text-decoration:none;outline-width:0}
 body,html{height:100%}
 body{background:#27282c;font-family:"ff-tisa-web-pro","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;font-size:16px;color:#666;}
-body > header{width:22%;position:fixed;opacity:.35;filter:alpha(opacity=35);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=35)";min-height:100%;padding:40px 0;background:url("/img/noise.png"),-webkit-radial-gradient(top left,150px 150px,#34363b,#27282c);-webkit-transition:opacity .2s ease-in;-moz-transition:opacity .2s ease-in;-o-transition:opacity .2s ease-in;-ms-transition:opacity .2s ease-in;transition:opacity .2s ease-in;}
+body > header{width:22%;position:fixed;opacity:.8;filter:alpha(opacity=80);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";min-height:100%;padding:40px 0;background-image:url("/img/noise.png"),-webkit-radial-gradient(top left,150px 150px,#34363b,#27282c);}
 body > header h1{color:#efefef;font-size:2.8em;font-family:"Fjalla One";text-shadow:0 1px #333;padding-bottom:10px;padding-left:15%;zoom:1;}
 body > header h1 a{color:#efefef}
 body > header h4{line-height:2em;padding-left:15%;font-size:1.1em;}
@@ -25,7 +25,7 @@ body > section.content-col > header h4{width:100%;color:#999;padding:30px 0;text
 body > section.content-col article{padding:30px 30% 0 40px;}
 body > section.content-col article header{padding-bottom:10px;}
 body > section.content-col article header > small{font-size:16px;line-height:1.2;color:#b3b3b1}
-body > section.content-col article header > h1{font-size:1.8em;padding-bottom:10px;color:#333;margin-bottom:2px;line-height:35px;text-shadow:0 1px #fff;}
+body > section.content-col article header > h1{font-family:"Fjalla One";font-size:1.8em;padding-bottom:10px;color:#333;margin-bottom:2px;line-height:35px;text-shadow:0 1px #fff;}
 body > section.content-col article header > h1 a{color:inherit}
 body > section.content-col article > p{text-align:justify;font-weight:400;color:#333332;font-size:18px;line-height:1.4;margin-bottom:31px;}
 body > section.content-col article > p img{max-width:100%}

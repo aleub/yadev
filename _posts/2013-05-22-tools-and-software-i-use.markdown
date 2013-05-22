@@ -28,4 +28,4 @@ These 3 programs combined are soo powerful. I'll try to write up some nice use c
 
 Screenshot (mid 2013)
 
-[![Destop Screenshop mid 2013](/media/desk_210513-thumb.png "Logo Title Text 1")](/media/desk_210513.png)
+[![Destop Screenshop mid 2013](/media/desk_210513-thumb.jpg "Logo Title Text 1")](/media/desk_210513.png)
