@@ -9,9 +9,11 @@ audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
 audio:not([controls]),[hidden]{display:none}
 @media screen{*{-moz-box-sizing:type;-webkit-box-sizing:type;-webkit-box-sizing:type;-moz-box-sizing:type;box-sizing:type}
 a{text-decoration:none;outline-width:0}
+.highlight{padding:10px;margin-bottom:20px;background-color:#27282c;}
+.highlight pre{line-height:1.4;font-size:15px;font-family:"Source Code Pro",monospace,"Consolas"}
 body,html{height:100%}
 body{background:#27282c;font-family:"ff-tisa-web-pro","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;font-size:16px;color:#666;}
-body > header{width:22%;position:fixed;opacity:.8;filter:alpha(opacity=80);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";min-height:100%;padding:40px 0;background-image:url("/img/noise.png"),-webkit-radial-gradient(top left,150px 150px,#34363b,#27282c);}
+body > header{width:18%;position:fixed;opacity:.8;filter:alpha(opacity=80);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";min-height:100%;padding:40px 0;background-image:url("/img/noise.png"),-webkit-radial-gradient(top left,150px 150px,#34363b,#27282c);}
 body > header h1{color:#efefef;font-size:2.8em;font-family:"Fjalla One";text-shadow:0 1px #333;padding-bottom:10px;padding-left:15%;zoom:1;}
 body > header h1 a{color:#efefef}
 body > header h4{line-height:2em;padding-left:15%;font-size:1.1em;}
@@ -19,7 +21,8 @@ body > header h4 span{color:#999;font-weight:bold}
 body > header:hover{opacity:1;-ms-filter:none;filter:none}
 body nav{width:100%;padding:20% 0 0 15%;line-height:30px;}
 body nav ul li a{color:#efefef;text-shadow:0 1px #333;zoom:1}
-body > section.content-col{float:right;width:78%;min-height:100%;background:#f5f5f5;}
+body > section.content-col{float:right;width:82%;min-height:100%;background:#f5f5f5;}
+body > section.content-col > header{padding:0 30% 0 0;}
 body > section.content-col > header h1{font-size:38.5px}
 body > section.content-col > header h4{width:100%;color:#999;padding:30px 0;text-align:center;line-height:30px;position:relative;border-top:1px solid #fff;border-bottom:1px solid #ddd}
 body > section.content-col article{padding:30px 30% 0 40px;}
@@ -27,6 +30,7 @@ body > section.content-col article header{padding-bottom:10px;}
 body > section.content-col article header > small{font-size:16px;line-height:1.2;color:#b3b3b1}
 body > section.content-col article header > h1{font-family:"Fjalla One";font-size:1.8em;padding-bottom:10px;color:#333;margin-bottom:2px;line-height:35px;text-shadow:0 1px #fff;}
 body > section.content-col article header > h1 a{color:inherit}
+body > section.content-col article > h1{font-size:1.4em;font-family:"Fjalla One";margin-bottom:20px;margin-top:20px}
 body > section.content-col article > p{text-align:justify;font-weight:400;color:#333332;font-size:18px;line-height:1.4;margin-bottom:31px;}
 body > section.content-col article > p img{max-width:100%}
 body > section.content-col article > p:last-of-type{margin-bottom:0}
@@ -34,6 +38,7 @@ body > section.content-col article footer{border-bottom:1px solid #ddd}
 body > section.content-col footer{padding:30px 0;text-align:center;font-size:.9em;width:100%}
 }@media screen and (max-width: 1000px){body > header h1{font-size:2.2em}
 body > header h4{line-height:2;font-size:.9em}
+body > section.content-col header{padding:0}
 body > section.content-col article{padding:30px 10% 0 40px}
 }@media screen and (max-width: 700px){body > header{position:relative;float:none;width:100%;min-height:auto;background:-webkit-radial-gradient(top center,150px 90px,#34363b,#27282c);}
 body > header h1,body > header h4{text-align:center;padding-left:0}

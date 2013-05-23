@@ -13,18 +13,27 @@ reset-html5()
     text-decoration: none
     outline-width: 0
 
+  .highlight
+    padding: 10px
+    margin-bottom: 20px
+    background-color: rgb(39, 40, 44)
+    pre
+      line-height: 1.4
+      font-size: 15px
+      font-family: "Source Code Pro", monospace, "Consolas"
+
   body, html
     height: 100%
 
   body
-    background: rgb(39, 40,44)
+    background: rgb(39, 40, 44)
     font-family: "ff-tisa-web-pro", "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif
     font-weight: 400
     font-size: 16px
     color: #666
 
     > header
-      width: 22%
+      width: 18%
       position: fixed
       opacity: .8
       min-height: 100%
@@ -68,11 +77,13 @@ reset-html5()
 
     > section.content-col
       float: right
-      width: 78%
+      width: 82%
       min-height: 100%
       background: whitesmoke
 
       > header
+        padding: 0 30% 0 0
+
         h1
           font-size: 38.5px
 
@@ -107,6 +118,11 @@ reset-html5()
             text-shadow: 0 1px #ffffff
             a
               color: inherit
+        > h1
+          font-size: 1.4em
+          font-family: "Fjalla One"
+          margin-bottom: 20px;
+          margin-top: 20px;
 
         > p
           text-align: justify
@@ -140,6 +156,8 @@ reset-html5()
       font-size: 0.9em;
 
   body > section.content-col
+    header
+      padding: 0
     article
       padding: 30px 10% 0 40px
 

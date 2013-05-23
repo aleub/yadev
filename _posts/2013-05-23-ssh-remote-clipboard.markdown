@@ -1,13 +1,17 @@
 ---
 layout: post
-title: "Clipboard for SSH Connections"
+title: "Xorg clipboard for SSH connections"
 date: 2013-05-23 12:17:10
 ---
-I just found out about a nice feature to use the clipboard over remote ssh connection in linux. Just connect via `ssh -Y host.example.com` 
+I just found out about a nice feature to use the clipboard over remote ssh connection in linux. Just connect via
 
-To automate this you have to add the host to your ssh config file in `~/.ssh/config` :
-
+```sh
+$ ssh -Y host.example.com
 ```
+
+To automate this you have to add the host to your ssh config file in ~/.ssh/config :
+
+```ruby
 Host host.example.com
   ForwardAgent yes
   ForwardX11 yes

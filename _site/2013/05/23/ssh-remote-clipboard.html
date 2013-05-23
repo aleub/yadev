@@ -5,7 +5,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>yadev - contact</title>
+    <title>Xorg clipboard for SSH connections</title>
     <link rel=icon href="/favicon.png" sizes="128x128" type="image/png">
     <link href='/css/fonts.css' rel='stylesheet' type='text/css'>
     <link href='/css/syntax.css' rel='stylesheet' type='text/css'>
@@ -30,11 +30,23 @@
     </header>
     <article>
   <header>
-    <h1>Contact</h1>
-    <p>You can write me an email <a href="mailto:leubner.andre@gmail.com">leubner.andre@gmail.com</a> or tweet <a href="https://twitter.com/robbe_">@robbe_</a> if you like.</p>
+    <h1>Xorg clipboard for SSH connections</h1>
+    <small data-timestamp="Thu, 23 May 2013 14:17:10 +0200" >I wrote this {{timestamp}}</small>
   </header>
+  <p>I just found out about a nice feature to use the clipboard over remote ssh connection in linux. Just connect via</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">$ </span>ssh -Y host.example.com
+</code></pre></div>
+<p>To automate this you have to add the host to your ssh config file in ~/.ssh/config :</p>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="no">Host</span> <span class="n">host</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+  <span class="no">ForwardAgent</span> <span class="n">yes</span>
+  <span class="no">ForwardX11</span> <span class="n">yes</span>
+  <span class="no">ForwardX11Trusted</span> <span class="n">yes</span>
+</code></pre></div>
+<p>The ForwardAgent is optional, but its nice if you use a private key with a secret and dont want to copy it to several servers.</p>
+
   <footer></footer>
 </article>
+
     <footer>
       <span>yadev &mdash; <a href="mailto:leubner.andre@gmail.com">leubner.andre@gmail.com</a></span>
     <footer>
