@@ -1,2 +1,3 @@
 name: yadev
 pygments: true
+markdown: redcarpet
