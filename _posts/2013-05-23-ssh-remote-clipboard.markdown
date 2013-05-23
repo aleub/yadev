@@ -11,7 +11,7 @@ To automate this you have to add the host to your ssh config file in `~/.ssh/con
 Host host.example.com
   ForwardAgent yes
   ForwardX11 yes
-  ForwardX11Trused yes
+  ForwardX11Trusted yes
 ```
 
 The ForwardAgent is optional, but its nice if you use a private key with a secret and dont want to copy it to several servers.
