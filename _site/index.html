@@ -31,6 +31,37 @@
     
 <article>
   <header>
+    <h1><a href="/2013/05/28/dotfiles-and-vim-config.html">Dotfiles and my .vimrc config</a></h1>
+    <small data-timestamp="Tue, 28 May 2013 00:00:00 +0200" >I wrote this {{timestamp}}</small>
+  </header>
+  <h1>Dotfiles</h1>
+
+<p>Since a colleague of mine always asks about my current vim config, i updated my dotfiles repository on github <a href="https://github.com/leubnerandre/dotfiles">here</a>. Those include my vimrc, .vim, zshrc, Xresources and screenrc. </p>
+
+<p>To get it working, first you should move your own files to a safe place. If you want to change stuff the way you want it, fork the repo. Then clone youre own, or my repo, cd into the newly created repo and install them:</p>
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nb">cd</span> ~
+git clone https://github.com/leubnerandre/dotfiles
+<span class="nb">cd </span>dotfiles
+make install
+make update
+</code></pre></div>
+<p>Using this method youre keeping all your config files in a convenient place, just pointing to them using symlinks. The last command is a oneline makefile entry which runs git pull in every directory in ~/.vim/bundle, that fetches the most recent git version from each vim plugin. If you havn&#39;t noticed already, i&#39;m managing my plugins via <a href="https://github.com/tpope/vim-pathogen">pathogen</a>, it&#39;s neat to put your newly discovered vim plugin in the bundle folder and your good to go. However, i should mention there is a better way of using vim plugins in your personal dotfiles, which is adding them through git submodules, but i couldnt figure it out when i did this setup and this solution works aswell.</p>
+
+<h1>.vimrc</h1>
+
+<p>I realized the vimrc file is quite well commented, no need to go through every line. The original file is not written by me, however i dont remember where i found it.</p>
+
+<p>Take a look at <a href="https://github.com/leubnerandre/dotfiles/blob/master/vimrc">my vimrc here</a>.</p>
+
+<p>In combination with urxvt ( + nice Xresources) it provides you with this eyecandy:</p>
+
+<p><img src="/media/vim-2013-05-28-003537_742x814_scrot.png" alt="vim in urxvt" title="vim in urxvt"></p>
+
+  <footer></footer>
+</article>
+
+<article>
+  <header>
     <h1><a href="/2013/05/23/ssh-remote-clipboard.html">Xorg clipboard for SSH connections</a></h1>
     <small data-timestamp="Thu, 23 May 2013 14:17:10 +0200" >I wrote this {{timestamp}}</small>
   </header>
